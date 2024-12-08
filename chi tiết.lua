@@ -1,16 +1,4 @@
-local status, err = pcall(function()
-    local ver = 5.121
-    local placeId = game.PlaceId
-    executor = identifyexecutor()
-    if string.find(executor, "Arceus") then
-        arceus = true
-    elseif string.find(executor, "Delta") then
-        delta = true
-    elseif string.find(executor, "Fluxus") then
-        fluxus = true
-    elseif string.find(executor, "Codex") then
-        codex = true
-    end
+
 
 -- Load Vape UI Library
 local Vape = loadstring(game:HttpGet("https://raw.githubusercontent.com/danielga3/Vape-UI/main/Vape%20UI.lua"))()
