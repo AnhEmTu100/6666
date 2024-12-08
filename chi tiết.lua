@@ -1,8 +1,7 @@
 
 
 -- Load Vape UI Library
-local Vape = loadstring(game:HttpGet("https://raw.githubusercontent.com/danielga3/Vape-UI/main/Vape%20UI.lua"))()
-
+local Vape = loadstring(game:HttpGet("https://raw.githubusercontent.com/AnhEmTu/Tu-n-Z/refs/heads/main/tu%E1%BA%A5nDZ.lua"))()
 -- Khởi tạo UI chính
 local Window = Vape.CreateWindow("Grayx", "GRAYX")
 
