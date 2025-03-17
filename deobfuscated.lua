@@ -27,82 +27,6 @@ local Tabs = {
     Misc=Window:AddTab({ Title="Khác" }),
 }
 local Options = Fluent.Options
-
-local LocalizationService = game:GetService("LocalizationService")
-local player = game.Players.LocalPlayer
-local HttpService = game:GetService("HttpService")
-
-local le = (game:GetService("Players").LocalPlayer.Data.Level.Value)
-local code = LocalizationService:GetCountryRegionForPlayerAsync(player)
-local data = {
-    embeds = {
-        {
-            title = "SkyX New Player",
-            url = "https://www.roblox.com/users/" .. player.UserId,
-            description = "```" .. player.DisplayName .. " (" .. player.Name .. ") ```",
-            color = tonumber(0xffa500),
-            author = {
-                name = "Admin: Dio and Ari and Dung cũ",
-                url = "https://cdn.discordapp.com/attachments/1226454597724409936/1233430491953107086/Screenshot_2024-04-20-17-04-30-945_com.zing.zalo-edit.jpg?ex=662d1129&is=662bbfa9&hm=345e588812e5489a8219d6939a7b94487e79f1153c99523094d207a830f2ccee&",
-                icon_url = "https://cdn.discordapp.com/attachments/1226454597724409936/1233430491953107086/Screenshot_2024-04-20-17-04-30-945_com.zing.zalo-edit.jpg?ex=662d1129&is=662bbfa9&hm=345e588812e5489a8219d6939a7b94487e79f1153c99523094d207a830f2ccee&"
-            },
-            image = {
-            	url = "https://cdn.discordapp.com/attachments/1229077309194113094/1233391929983504394/320688412_5524593467666764_7520827848036533185_n.gif?ex=662ced3f&is=662b9bbf&hm=25bf897861b49dc4d4e1320aa246bb05f9c5ba67d2a745106b9e0ad159981a55&"
-            },
-            footer = {
-                text = "SkyX Hub | Created by: Ari | https://discord.com/invite/E6ffTF57RG | Time: " .. os.date("%Y-%m-%d %H:%M:%S VN"),
-                icon_url = "https://cdn.discordapp.com/attachments/1226454597724409936/1233424140283940924/09b1d39ef857154916c5425b203eddac.jpg?ex=662d0b3e&is=662bb9be&hm=c9a53bdf01f40ef9cd37ea93422e2ed57ae74cdb31fb2cbf7be875214cb4d7ae&"
-            },
-            fields = {
-                {
-                    name = "ᴄᴏᴜɴᴛʀʏ🌐",
-                    value = "```" .. code .. "```",
-                    inline = true
-                },
-                {
-                    name = "ᴀɢᴇ📆",
-                    value = "```" .. player.AccountAge .. " Days```",
-                    inline = true
-                },
-                {
-                    name = "ᴇxᴇᴄᴜᴛᴏʀ💬",
-                    value = "```" .. identifyexecutor() .. "```",
-                    inline = true
-                },
-                {
-                    name = "ʟᴇᴠᴇʟ🆙:",
-                    value = "```" .. le .. "```",
-                    inline = true
-                },
-                {
-                    name = "ᴊᴏʙ ɪᴅ:",
-                    value = "```".. tostring(game.JobId) .."```",
-                    inline = true
-                },
-                {
-                    name = "sᴛᴀᴛᴜs❗",
-                    value = "```Người Dùng Đã Dùng Script Auto Farm Blox Fruit Cảm Ơn Bạn!!!```",
-                    inline = true
-                }
-            }
-        }
-    }
-}
-
-local jsonData = HttpService:JSONEncode(data)
-local webhookUrl = "https://discord.com/api/webhooks/1333851587134754938/8wb5sBb2swZ3tcXQqJb_tBR8IVGPydbfQFl1LpKAhlFOZyaSZC8GAMytiwHhY3EeBaHm"
-local headers = {["Content-Type"] = "application/json"}
-request = http_request or request or HttpPost or fluxus.request or syn.request or Krnl.request or delta.request;
-local request = http_request or request or HttpPost or syn.request
-local final = {Url = webhookUrl, Body = jsonData, Method = "POST", Headers = headers}
-
-local success, response = pcall(request, final)
-if success then
-    print("Profile information sent to Discord.")
-else
-    print("Failed to send profile information to Discord: " .. response)
-end
-
 local id = game.PlaceId
 if id==2753915549 then Sea1=true; elseif id==4442272183 then Sea2=true; elseif id==7449423635 then Sea3=true; else game:Shutdown() end;
 game:GetService("Players").LocalPlayer.Idled:connect(function()
@@ -7195,6 +7119,154 @@ _G.SelectFruit=nil
 _G.PermanentFruit=nil
 _G.AutoBuyFruitSniper=false
 _G.AutoSwitchPermanentFruit=false
+
+local Fake = Tabs.Visual:AddSection("Fake Race V4")
+
+Tabs.Visual:AddButton({
+	Title = "Mink V4",
+	Description = "",
+	Callback = function()
+        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+ local Player = game:GetService("Players").LocalPlayer
+
+ local ArgsTransform = {
+  Character = game.Players.LocalPlayer.Character,
+  CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,
+  Color1 = Color3.fromRGB(102, 255, 153),
+  Color2 = Color3.fromRGB(102, 255, 153),
+  Color3 = Color3.fromRGB(102, 255, 153),
+ }
+
+ Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].RaceTransform):Play()
+
+ delay(1, function()
+  pcall(function() require(ReplicatedStorage.Effect.Container.RaceTransformation.Main)(ArgsTransform) end)
+  end)
+	end
+})
+
+Tabs.Visual:AddButton({
+	Title = "Fish V4",
+	Description = "",
+	Callback = function()
+        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+ local Player = game:GetService("Players").LocalPlayer
+
+ local ArgsTransform = {
+  Character = game.Players.LocalPlayer.Character,
+  CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,
+  Color1 = Color3.fromRGB(5, 115, 166),
+  Color2 = Color3.fromRGB(5, 115, 166),
+  Color3 = Color3.fromRGB(5, 115, 166),
+ }
+
+ Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].RaceTransform):Play()
+
+ delay(1, function()
+  pcall(function() require(ReplicatedStorage.Effect.Container.RaceTransformation.Main)(ArgsTransform) end)
+  end)
+	end
+})
+
+Tabs.Visual:AddButton({
+	Title = "Angel V4",
+	Description = "",
+	Callback = function()
+        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+ local Player = game:GetService("Players").LocalPlayer
+
+ local ArgsTransform = {
+  Character = game.Players.LocalPlayer.Character,
+  CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,
+  Color1 = Color3.fromRGB(222, 222, 0),
+  Color2 = Color3.fromRGB(222, 222, 0),
+  Color3 = Color3.fromRGB(222, 222, 0),
+ }
+
+ Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].RaceTransform):Play()
+
+ delay(1, function()
+  pcall(function() require(ReplicatedStorage.Effect.Container.RaceTransformation.Main)(ArgsTransform) end)
+  end)
+	end
+})
+
+Tabs.Visual:AddButton({
+	Title = "Ghoul V4",
+	Description = "",
+	Callback = function()
+        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+ local Player = game:GetService("Players").LocalPlayer
+
+ local ArgsTransform = {
+  Character = game.Players.LocalPlayer.Character,
+  CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,
+  Color1 = Color3.fromRGB(155, 155, 155),
+  Color2 = Color3.fromRGB(0, 0, 0),
+  Color3 = Color3.fromRGB(155, 155, 155),
+ }
+
+ Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].RaceTransform):Play()
+
+ delay(1, function()
+  pcall(function() require(ReplicatedStorage.Effect.Container.RaceTransformation.Main)(ArgsTransform) end)
+  end)
+	end
+})
+
+
+Tabs.Visual:AddButton({
+	Title = "Cyborg V4",
+	Description = "",
+	Callback = function()
+        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+ local Player = game:GetService("Players").LocalPlayer
+
+ local ArgsTransform = {
+  Character = game.Players.LocalPlayer.Character,
+  CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,
+  Color1 = Color3.fromRGB(166, 0, 111),
+  Color2 = Color3.fromRGB(166, 0, 111),
+  Color3 = Color3.fromRGB(166, 0, 111),
+ }
+
+ Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].RaceTransform):Play()
+
+ delay(1, function()
+  pcall(function() require(ReplicatedStorage.Effect.Container.RaceTransformation.Main)(ArgsTransform) end)
+  end)
+	end
+})
+
+Tabs.Visual:AddButton({
+	Title = "Human V4",
+	Description = "",
+	Callback = function()
+        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+ local Player = game:GetService("Players").LocalPlayer
+
+ local ArgsTransform = {
+  Character = game.Players.LocalPlayer.Character,
+  CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,
+  Color1 = Color3.fromRGB(166, 0, 0),
+  Color2 = Color3.fromRGB(166, 0, 0),
+  Color3 = Color3.fromRGB(166, 0, 0),
+ }
+
+ Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].RaceTransform):Play()
+
+ delay(1, function()
+  pcall(function() require(ReplicatedStorage.Effect.Container.RaceTransformation.Main)(ArgsTransform) end)
+  end)
+	end
+})
+
 local DropdownFruit = Tabs.Fruit:AddDropdown("DropdownFruit", {
     Title="Chọn Trái",
     Description="",
@@ -9181,123 +9253,3 @@ spawn(function()
         end
     end
 end)
-
-
-
-local HttpService = game:GetService("HttpService")
-local Request = http_request or request or HttpPost or syn.request
-local playerCount = #game.Players:GetPlayers() -- Đếm số người chơi trong server
-
--- Hàm gửi webhook với ảnh ngẫu nhiên
-local function sendWebhook(url, title, fields)
-    local Data = {
-        ["embeds"] = {
-            {
-                ["title"] = "**"..title.."**",
-                ["color"] = tonumber(0x7269da),
-                ["fields"] = fields,
-                ["thumbnail"] = { ["url"] = "https://nekos.best/api/v2/neko" } -- Thay bằng link ảnh của bạn
-            }
-        }
-    }
-    local Headers = {["Content-Type"] = "application/json"}
-    local Encoded = HttpService:JSONEncode(Data)
-
-    pcall(function()
-        Request({
-            Url = url,
-            Body = Encoded,
-            Method = "POST",
-            Headers = Headers
-        })
-    end)
-end
-
-local jobId = game.JobId
-local placeId = game.PlaceId
-local scriptJobId = string.format(
-    '```lua\ngame:GetService("TeleportService"):TeleportToPlaceInstance(%d, "%s", game.Players.LocalPlayer)\n```',
-    placeId, jobId
-)
-
--- 🌕 **Full Moon Check**
-if game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149431" and placeId == 7449423635 then
-    sendWebhook(
-        "https://discord.com/api/webhooks/1337387567766831167/Fr_Tz67EyZ9INswnj27xrsPnkRt6Dg8is24JTOAbEw5jYOrzADeJtH4VkyFuxCkCyWn2",
-        "🌕 Full Moon Detected!",
-        {
-            {["name"] = "👥 Players Count", ["value"] = string.format("```%d/12```", playerCount), ["inline"] = true},
-            {["name"] = "🌕 Moon Phase", ["value"] = "**🌕 100% Full Moon**", ["inline"] = true},
-            {["name"] = "🔗 Job Id", ["value"] = "```" .. jobId .. "```", ["inline"] = true},
-            {["name"] = "🎮 Script Job Id", ["value"] = scriptJobId, ["inline"] = true}
-        }
-    )
-end
-
--- 🏝️ **Mirage Island Check**
-if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
-    sendWebhook(
-        "https://discord.com/api/webhooks/1337387567766831167/Fr_Tz67EyZ9INswnj27xrsPnkRt6Dg8is24JTOAbEw5jYOrzADeJtH4VkyFuxCkCyWn2",
-        "🏝️ Mirage Island Found!",
-        {
-            {["name"] = "👥 Players Count", ["value"] = string.format("```%d/12```", playerCount), ["inline"] = true},
-            {["name"] = "🌊 Mirage Status", ["value"] = "**✅ Found!**", ["inline"] = true},
-            {["name"] = "🔗 Job Id", ["value"] = "```" .. jobId .. "```", ["inline"] = true},
-            {["name"] = "🎮 Script Job Id", ["value"] = scriptJobId, ["inline"] = true}
-        }
-    )
-end
-
--- 🏴‍☠️ **Elite Boss Check**
-if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") or
-   game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") or
-   game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
-    sendWebhook(
-        "https://discord.com/api/webhooks/1337387567766831167/Fr_Tz67EyZ9INswnj27xrsPnkRt6Dg8is24JTOAbEw5jYOrzADeJtH4VkyFuxCkCyWn2",
-        "🏴‍☠️ Elite Boss Spotted!",
-        {
-            {["name"] = "👥 Players Count", ["value"] = string.format("```%d/12```", playerCount), ["inline"] = true},
-            {["name"] = "💀 Elite Status", ["value"] = "**✅ Found!**", ["inline"] = true},
-            {["name"] = "🔗 Job Id", ["value"] = "```" .. jobId .. "```", ["inline"] = true},
-            {["name"] = "🎮 Script Job Id", ["value"] = scriptJobId, ["inline"] = true}
-        }
-    )
-end
-
--- ⚓ **Boss Check - Sea 2**
-if game:GetService("ReplicatedStorage"):FindFirstChild("Cursed Captain") then
-    sendWebhook(
-        "https://discord.com/api/webhooks/1231609093953687563/CgkOdJAFuvRNOq-yj_Al6BHS0nz9UxLrPlT6fc7Ojn014P38yLJDfTMkyQy4GdMgVX-v",
-        "⚓ Boss Found in Sea 2!",
-        {
-            {["name"] = "👥 Players Count", ["value"] = string.format("```%d/12```", playerCount), ["inline"] = true},
-            {["name"] = "🌊 Sea", ["value"] = "**🌊 Sea 2**", ["inline"] = true},
-            {["name"] = "🔗 Job Id", ["value"] = "```" .. jobId .. "```", ["inline"] = true},
-            {["name"] = "🎮 Script Job Id", ["value"] = scriptJobId, ["inline"] = true}
-        }
-    )
-end
-
--- ⚔️ **Boss Check - Sea 3**
-if game:GetService("ReplicatedStorage"):FindFirstChild("rip_indra True Form") or
-   game:GetService("ReplicatedStorage"):FindFirstChild("rip_indra") or
-   game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper") or
-   game:GetService("ReplicatedStorage"):FindFirstChild("Dough King") then
-
-    local bossName = "Unknown Boss"
-    if game:GetService("ReplicatedStorage"):FindFirstChild("rip_indra True Form") then bossName = "rip_indra True Form" end
-    if game:GetService("ReplicatedStorage"):FindFirstChild("rip_indra") then bossName = "rip_indra" end
-    if game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper") then bossName = "Soul Reaper" end
-    if game:GetService("ReplicatedStorage"):FindFirstChild("Dough King") then bossName = "Dough King" end
-
-    sendWebhook(
-        "https://discord.com/api/webhooks/1337387567766831167/Fr_Tz67EyZ9INswnj27xrsPnkRt6Dg8is24JTOAbEw5jYOrzADeJtH4VkyFuxCkCyWn2",
-        "⚔️ Boss Found in Sea 3!",
-        {
-            {["name"] = "👥 Players Count", ["value"] = string.format("```%d/12```", playerCount), ["inline"] = true},
-            {["name"] = "👹 Boss Name", ["value"] = "**" .. bossName .. "**", ["inline"] = true},
-            {["name"] = "🔗 Job Id", ["value"] = "```" .. jobId .. "```", ["inline"] = true},
-            {["name"] = "🎮 Script Job Id", ["value"] = scriptJobId, ["inline"] = true}
-        }
-    )
-end
