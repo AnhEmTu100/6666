@@ -300,41 +300,7 @@ CreateNotification("HACK", Color3.fromRGB(255, 0, 0), "R2LX HUB!", Color3.fromRG
 -- Chức năng hiển thị FPS và Pinglocal Players = game:GetService("Players") local RunService = game:GetService("RunService") local Stats = game:GetService("Stats")
 ---Webhook Discord
 
-
-function PostWebhook(message)
-    local HttpService = game:GetService("HttpService")
-    local RequestFunction = syn and syn.request or request or http_request or HttpPost
-
-    if not RequestFunction then
-        warn("[Webhook] Không tìm thấy phương thức gửi request!")
-        return
-    end
-
-    local Data = {
-        ["content"] = message,
-        ["username"] = "Game Bot",
-        ["avatar_url"] = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. game.Players.LocalPlayer.UserId .. "&width=420&height=420&format=png"
-    }
-
-    local Success, Response = pcall(function()
-        return RequestFunction({
-            Url = Webhook_URL,
-            Method = "POST",
-            Headers = {["Content-Type"] = "application/json"},
-            Body = HttpService:JSONEncode(Data)
-        })
-    end)
-
-    if Success and Response.StatusCode == 204 then
-        print("[Webhook] Gửi thông báo thành công!")
-    else
-        warn("[Webhook] Gửi thất bại! Lỗi:", Response and Response.StatusMessage or "Không rõ")
-    end
-end
-
--- Gửi thông báo test khi script khởi động
-PostWebhook("🔔 **Script đã khởi động thành công!**")
-
+function PostWebhook(Url, message)
     local request = http_request or request or HttpPost or syn.request
     local data =
         request(
@@ -667,7 +633,7 @@ local function guiThongBaoDiscord()
                     },
                     {
                         ["name"] = "🔗 Join Code:",
-                        ["value"] = " .. joinCode .. ",
+                        ["value"] = "```lua\n" .. joinCode .. "```",
                         ["inline"] = false
                     },
                     {
@@ -704,6 +670,7 @@ game.StarterGui:SetCore("SendNotification", {
     Text = serverStatusMessage,
     Duration = 5
 })
+
 
 local placeId = game.PlaceId
 local supportedGames = {
