@@ -674,14 +674,14 @@ game.StarterGui:SetCore("SendNotification", {
 
 local placeId = game.PlaceId
 local supportedGames = {
-    [2753915549] = true, -- Sea 1
+    [2753915548] = true, -- Sea 1
     [4442272183] = true, -- Sea 2
     [7449423635] = true  -- Sea 3
 }
 
 if supportedGames[placeId] then
     local v = {
-        [2753915549] = "https://raw.githubusercontent.com/AnhEmTu100/MEME/refs/heads/main/deobfuscated.lua",
+        [2753915548] = "https://raw.githubusercontent.com/AnhEmTu100/MEME/refs/heads/main/deobfuscated.lua",
         [4442272183] = "https://raw.githubusercontent.com/AnhEmTu100/MEME/refs/heads/main/deobfuscated.lua",
         [7449423635] = "https://raw.githubusercontent.com/AnhEmTu100/MEME/refs/heads/main/deobfuscated.lua"
     }
