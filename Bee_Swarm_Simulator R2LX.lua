@@ -681,9 +681,9 @@ local supportedGames = {
 
 if supportedGames[placeId] then
     local v = {
-        [2753915548] = "https://raw.githubusercontent.com/AnhEmTu100/MEME/refs/heads/main/deobfuscated.lua",
-        [4442272183] = "https://raw.githubusercontent.com/AnhEmTu100/MEME/refs/heads/main/deobfuscated.lua",
-        [7449423635] = "https://raw.githubusercontent.com/AnhEmTu100/MEME/refs/heads/main/deobfuscated.lua"
+        [2753915548] = "https://raw.githubusercontent.com/AnhEmTu100/6666/refs/heads/main/deobfuscated.lua",
+        [4442272183] = "https://raw.githubusercontent.com/AnhEmTu100/6666/refs/heads/main/deobfuscated.lua",
+        [7449423635] = "https://raw.githubusercontent.com/AnhEmTu100/6666/refs/heads/main/deobfuscated.lua"
     }
 
     for PlaceID, Execute in pairs(v) do
