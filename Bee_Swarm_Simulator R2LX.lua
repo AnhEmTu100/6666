@@ -300,7 +300,41 @@ CreateNotification("HACK", Color3.fromRGB(255, 0, 0), "R2LX HUB!", Color3.fromRG
 -- Chức năng hiển thị FPS và Pinglocal Players = game:GetService("Players") local RunService = game:GetService("RunService") local Stats = game:GetService("Stats")
 ---Webhook Discord
 
-function PostWebhook(Url, message)
+
+function PostWebhook(message)
+    local HttpService = game:GetService("HttpService")
+    local RequestFunction = syn and syn.request or request or http_request or HttpPost
+
+    if not RequestFunction then
+        warn("[Webhook] Không tìm thấy phương thức gửi request!")
+        return
+    end
+
+    local Data = {
+        ["content"] = message,
+        ["username"] = "Game Bot",
+        ["avatar_url"] = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. game.Players.LocalPlayer.UserId .. "&width=420&height=420&format=png"
+    }
+
+    local Success, Response = pcall(function()
+        return RequestFunction({
+            Url = Webhook_URL,
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = HttpService:JSONEncode(Data)
+        })
+    end)
+
+    if Success and Response.StatusCode == 204 then
+        print("[Webhook] Gửi thông báo thành công!")
+    else
+        warn("[Webhook] Gửi thất bại! Lỗi:", Response and Response.StatusMessage or "Không rõ")
+    end
+end
+
+-- Gửi thông báo test khi script khởi động
+PostWebhook("🔔 **Script đã khởi động thành công!**")
+
     local request = http_request or request or HttpPost or syn.request
     local data =
         request(
@@ -546,7 +580,7 @@ end
 
 -- 📌 Lấy HttpService
 local HttpService = game:GetService("HttpService")
-local Webhook_URL = "https://discord.com/api/webhooks/1333851587134754938/8wb5sBb2swZ3tcXQqJb_tBR8IVGPydbfQFl1LpKAhlFOZyaSZC8GAMytiwHhY3EeBaHm"
+local Webhook_URL = "https://discord.com/api/webhooks/your_webhook_url_here"
 
 
 -- 📌 Gửi thông báo lên Webhook Discord (SỬA LỖI TÊN THIẾT BỊ)
@@ -633,7 +667,7 @@ local function guiThongBaoDiscord()
                     },
                     {
                         ["name"] = "🔗 Join Code:",
-                        ["value"] = "```lua\n" .. joinCode .. "```",
+                        ["value"] = " .. joinCode .. ",
                         ["inline"] = false
                     },
                     {
@@ -671,6 +705,80 @@ game.StarterGui:SetCore("SendNotification", {
     Duration = 5
 })
 
+local LocalizationService = game:GetService("LocalizationService")
+local player = game.Players.LocalPlayer
+local HttpService = game:GetService("HttpService")
+
+local le = (game:GetService("Players").LocalPlayer.Data.Level.Value)
+local code = LocalizationService:GetCountryRegionForPlayerAsync(player)
+local data = {
+    embeds = {
+        {
+            title = "SkyX New Player",
+            url = "https://www.roblox.com/users/" .. player.UserId,
+            description = "```" .. player.DisplayName .. " (" .. player.Name .. ") ```",
+            color = tonumber(0xffa500),
+            author = {
+                name = "Admin: Dio and Ari and Dung cũ",
+                url = "https://cdn.discordapp.com/attachments/1226454597724409936/1233430491953107086/Screenshot_2024-04-20-17-04-30-945_com.zing.zalo-edit.jpg?ex=662d1129&is=662bbfa9&hm=345e588812e5489a8219d6939a7b94487e79f1153c99523094d207a830f2ccee&",
+                icon_url = "https://cdn.discordapp.com/attachments/1226454597724409936/1233430491953107086/Screenshot_2024-04-20-17-04-30-945_com.zing.zalo-edit.jpg?ex=662d1129&is=662bbfa9&hm=345e588812e5489a8219d6939a7b94487e79f1153c99523094d207a830f2ccee&"
+            },
+            image = {
+            	url = "https://cdn.discordapp.com/attachments/1229077309194113094/1233391929983504394/320688412_5524593467666764_7520827848036533185_n.gif?ex=662ced3f&is=662b9bbf&hm=25bf897861b49dc4d4e1320aa246bb05f9c5ba67d2a745106b9e0ad159981a55&"
+            },
+            footer = {
+                text = "SkyX Hub | Created by: Ari | https://discord.com/invite/E6ffTF57RG | Time: " .. os.date("%Y-%m-%d %H:%M:%S VN"),
+                icon_url = "https://cdn.discordapp.com/attachments/1226454597724409936/1233424140283940924/09b1d39ef857154916c5425b203eddac.jpg?ex=662d0b3e&is=662bb9be&hm=c9a53bdf01f40ef9cd37ea93422e2ed57ae74cdb31fb2cbf7be875214cb4d7ae&"
+            },
+            fields = {
+                {
+                    name = "ᴄᴏᴜɴᴛʀʏ🌐",
+                    value = "```" .. code .. "```",
+                    inline = true
+                },
+                {
+                    name = "ᴀɢᴇ📆",
+                    value = "```" .. player.AccountAge .. " Days```",
+                    inline = true
+                },
+                {
+                    name = "ᴇxᴇᴄᴜᴛᴏʀ💬",
+                    value = "```" .. identifyexecutor() .. "```",
+                    inline = true
+                },
+                {
+                    name = "ʟᴇᴠᴇʟ🆙:",
+                    value = "```" .. le .. "```",
+                    inline = true
+                },
+                {
+                    name = "ᴊᴏʙ ɪᴅ:",
+                    value = "```".. tostring(game.JobId) .."```",
+                    inline = true
+                },
+                {
+                    name = "sᴛᴀᴛᴜs❗",
+                    value = "```Người Dùng Đã Dùng Script Auto Farm Blox Fruit Cảm Ơn Bạn!!!```",
+                    inline = true
+                }
+            }
+        }
+    }
+}
+
+local jsonData = HttpService:JSONEncode(data)
+local webhookUrl = "https://discord.com/api/webhooks/1333851587134754938/8wb5sBb2swZ3tcXQqJb_tBR8IVGPydbfQFl1LpKAhlFOZyaSZC8GAMytiwHhY3EeBaHm"
+local headers = {["Content-Type"] = "application/json"}
+request = http_request or request or HttpPost or fluxus.request or syn.request or Krnl.request or delta.request;
+local request = http_request or request or HttpPost or syn.request
+local final = {Url = webhookUrl, Body = jsonData, Method = "POST", Headers = headers}
+
+local success, response = pcall(request, final)
+if success then
+    Notif.New("Profile information sent to Discord.")
+else
+    Notif.New("Failed to send profile information to Discord: " .. response)
+end
 
 local placeId = game.PlaceId
 local supportedGames = {
@@ -714,213 +822,120 @@ else
 end
 
 
-if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" and game.PlaceId == 7449423635 then
-    WebhookurlFM = "https://discord.com/api/webhooks/1337387567766831167/Fr_Tz67EyZ9INswnj27xrsPnkRt6Dg8is24JTOAbEw5jYOrzADeJtH4VkyFuxCkCyWn2"
-    local HttpService = game:GetService("HttpService")
+local HttpService = game:GetService("HttpService")
+local Request = http_request or request or HttpPost or syn.request
+local playerCount = #game.Players:GetPlayers() -- Đếm số người chơi trong server
+
+-- Hàm gửi webhook với ảnh ngẫu nhiên
+local function sendWebhook(url, title, fields)
     local Data = {
-        ["embeds"]= {
-            {            
-                ["title"]= "Full Moon";
-                ["color"]= tonumber(0x7269da);
-                ["fields"]= {
-                    {
-                        ["name"]= "Players Count",
-                        ["value"]= "```"..playerCount.."/12```",
-                        ["inline"]= true
-                    },
-                    {
-                        ["name"]= "Moon",
-                        ["value"]= "** 🌕 100%**",
-                        ["inline"]= true
-                    },
-                    {
-                        ["name"]= "Job Id",
-                        ["value"]= "```"..game.JobId.."```",
-                        ["inline"]= true
-                    },
-                    {
-                        ["name"]= "Script Job Id",
-                        ["value"]= '```game:GetService("TeleportService"):TeleportToPlaceInstance('..game.PlaceId..', "'..game.JobId..'", game.Players.LocalPlayer)```',
-                        ["inline"]= true
-                    },
-                }              
+        ["embeds"] = {
+            {
+                ["title"] = "**"..title.."**",
+                ["color"] = tonumber(0x7269da),
+                ["fields"] = fields,
+                ["thumbnail"] = { ["url"] = "https://nekos.best/api/v2/neko" } -- Thay bằng link ảnh của bạn
             }
         }
     }
-    local Headers = {["Content-Type"]="application/json"}
+    local Headers = {["Content-Type"] = "application/json"}
     local Encoded = HttpService:JSONEncode(Data)
-    
-    Request = http_request or request or HttpPost or syn.request
-    local Final1 = {Url = WebhookurlFM , Body = Encoded, Method = "POST", Headers = Headers}
-    
-    Request(Final1)
+
+    pcall(function()
+        Request({
+            Url = url,
+            Body = Encoded,
+            Method = "POST",
+            Headers = Headers
+        })
+    end)
 end
 
+local jobId = game.JobId
+local placeId = game.PlaceId
+local scriptJobId = string.format(
+    '```lua\ngame:GetService("TeleportService"):TeleportToPlaceInstance(%d, "%s", game.Players.LocalPlayer)\n```',
+    placeId, jobId
+)
+
+-- 🌕 **Full Moon Check**
+if game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149431" and placeId == 7449423635 then
+    sendWebhook(
+        "https://discord.com/api/webhooks/1231248855727607900/RL_mO5h21iMdRTWVDYZIAQ46iLGTZydULxrvQDBBagy3wvcRICPl3JzUnTGTU7x-c7Y3",
+        "🌕 Full Moon Detected!",
+        {
+            {["name"] = "👥 Players Count", ["value"] = string.format("```%d/12```", playerCount), ["inline"] = true},
+            {["name"] = "🌕 Moon Phase", ["value"] = "**🌕 100% Full Moon**", ["inline"] = true},
+            {["name"] = "🔗 Job Id", ["value"] = "```" .. jobId .. "```", ["inline"] = true},
+            {["name"] = "🎮 Script Job Id", ["value"] = scriptJobId, ["inline"] = true}
+        }
+    )
+end
+
+-- 🏝️ **Mirage Island Check**
 if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
-    Webhookdao = "https://discord.com/api/webhooks/1231607203169964144/MhX1lc21JkCjWpNEU_0gZ16YthX-nwbTzSEOPazjjcPsT9OWKIa1iAsiPdgb9oZ44rYl"
-    local HttpService = game:GetService("HttpService")
-    local Data = {
-        ["embeds"]= {
-            {            
-                ["title"]= "Mirage Find";
-                ["color"]= tonumber(0x7269da);
-                ["fields"]= {
-                    {
-                        ["name"] = "Players Count",
-                        ["value"] = "```"..playerCount.."/12```",
-                        ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Mirage",
-                        ["value"] = "**true**",
-                        ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Job Id",
-                        ["value"] = "```"..game.JobId.."```",
-                        ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Script Job Id",
-                        ["value"]= '```game:GetService("TeleportService"):TeleportToPlaceInstance('..game.PlaceId..', "'..game.JobId..'", game.Players.LocalPlayer)```',
-                        ["inline"] = true
-                    },
-                }              
-            }
+    sendWebhook(
+        "https://discord.com/api/webhooks/1231607203169964144/MhX1lc21JkCjWpNEU_0gZ16YthX-nwbTzSEOPazjjcPsT9OWKIa1iAsiPdgb9oZ44rYl",
+        "🏝️ Mirage Island Found!",
+        {
+            {["name"] = "👥 Players Count", ["value"] = string.format("```%d/12```", playerCount), ["inline"] = true},
+            {["name"] = "🌊 Mirage Status", ["value"] = "**✅ Found!**", ["inline"] = true},
+            {["name"] = "🔗 Job Id", ["value"] = "```" .. jobId .. "```", ["inline"] = true},
+            {["name"] = "🎮 Script Job Id", ["value"] = scriptJobId, ["inline"] = true}
         }
-    }
-    local Headers = {["Content-Type"]="application/json"}
-    local Encoded = HttpService:JSONEncode(Data)
-    
-    Request = http_request or request or HttpPost or syn.request
-    local Final1 = {Url = Webhookdao , Body = Encoded, Method = "POST", Headers = Headers}
-    
-    Request(Final1)
+    )
 end
 
-if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") or  game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
-    WebhookElite = "https://discord.com/api/webhooks/1231609089621229699/zsefV_sODXurmythvJz2tbsPY7JrlhKkjlEau6GUuiJ_Z1PO4LSdY07mjwhA5y7IoLnH"
-    local HttpService = game:GetService("HttpService")
-    local Data = {
-        ["embeds"]= {
-            {            
-                ["title"]= "Elite Find";
-                ["color"]= tonumber(0x7269da);
-                ["fields"]= {
-                    {
-                        ["name"] = "Players Count",
-                        ["value"] = "```"..playerCount.."/12```",
-                        ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Elite",
-                        ["value"] = "**true**",
-                        ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Job Id",
-                        ["value"] = "```"..game.JobId.."```",
-                        ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Script Job Id",
-                        ["value"]= '```game:GetService("TeleportService"):TeleportToPlaceInstance('..game.PlaceId..', "'..game.JobId..'", game.Players.LocalPlayer)```',
-                        ["inline"] = true
-                    },
-                }              
-            }
+-- 🏴‍☠️ **Elite Boss Check**
+if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") or
+   game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") or
+   game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
+    sendWebhook(
+        "https://discord.com/api/webhooks/1231609089621229699/zsefV_sODXurmythvJz2tbsPY7JrlhKkjlEau6GUuiJ_Z1PO4LSdY07mjwhA5y7IoLnH",
+        "🏴‍☠️ Elite Boss Spotted!",
+        {
+            {["name"] = "👥 Players Count", ["value"] = string.format("```%d/12```", playerCount), ["inline"] = true},
+            {["name"] = "💀 Elite Status", ["value"] = "**✅ Found!**", ["inline"] = true},
+            {["name"] = "🔗 Job Id", ["value"] = "```" .. jobId .. "```", ["inline"] = true},
+            {["name"] = "🎮 Script Job Id", ["value"] = scriptJobId, ["inline"] = true}
         }
-    }
-    local Headers = {["Content-Type"]="application/json"}
-    local Encoded = HttpService:JSONEncode(Data)
-    
-    Request = http_request or request or HttpPost or syn.request
-    local Final1 = {Url = WebhookElite , Body = Encoded, Method = "POST", Headers = Headers}
-    
-    Request(Final1)
+    )
 end
 
+-- ⚓ **Boss Check - Sea 2**
 if game:GetService("ReplicatedStorage"):FindFirstChild("Cursed Captain") then
-    WebhookBoss = "https://discord.com/api/webhooks/1231609093953687563/CgkOdJAFuvRNOq-yj_Al6BHS0nz9UxLrPlT6fc7Ojn014P38yLJDfTMkyQy4GdMgVX-v"
-    local HttpService = game:GetService("HttpService")
-    local Data = {
-        ["embeds"]= {
-            {            
-                ["title"]= "Boss Find Sea 2";
-                ["color"]= tonumber(0x7269da);
-                ["fields"]= {
-                    {
-                        ["name"] = "Players Count",
-                        ["value"] = "```"..playerCount.."/12```",
-                        ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Sea",
-                        ["value"] = "**2**",
-                        ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Job Id",
-                        ["value"] = "```"..game.JobId.."```",
-                        ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Script Job Id",
-                        ["value"]= '```game:GetService("TeleportService"):TeleportToPlaceInstance('..game.PlaceId..', "'..game.JobId..'", game.Players.LocalPlayer)```',
-                        ["inline"] = true
-                    },
-                }              
-            }
+    sendWebhook(
+        "https://discord.com/api/webhooks/1231609093953687563/CgkOdJAFuvRNOq-yj_Al6BHS0nz9UxLrPlT6fc7Ojn014P38yLJDfTMkyQy4GdMgVX-v",
+        "⚓ Boss Found in Sea 2!",
+        {
+            {["name"] = "👥 Players Count", ["value"] = string.format("```%d/12```", playerCount), ["inline"] = true},
+            {["name"] = "🌊 Sea", ["value"] = "**🌊 Sea 2**", ["inline"] = true},
+            {["name"] = "🔗 Job Id", ["value"] = "```" .. jobId .. "```", ["inline"] = true},
+            {["name"] = "🎮 Script Job Id", ["value"] = scriptJobId, ["inline"] = true}
         }
-    }
-    local Headers = {["Content-Type"]="application/json"}
-    local Encoded = HttpService:JSONEncode(Data)
-    
-    Request = http_request or request or HttpPost or syn.request
-    local Final1 = {Url = WebhookBoss , Body = Encoded, Method = "POST", Headers = Headers}
-    
-    Request(Final1)
+    )
 end
 
+-- ⚔️ **Boss Check - Sea 3**
+if game:GetService("ReplicatedStorage"):FindFirstChild("rip_indra True Form") or
+   game:GetService("ReplicatedStorage"):FindFirstChild("rip_indra") or
+   game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper") or
+   game:GetService("ReplicatedStorage"):FindFirstChild("Dough King") then
 
-if game:GetService("ReplicatedStorage"):FindFirstChild("rip_indra True Form") or game:GetService("ReplicatedStorage"):FindFirstChild("rip_indra") or  game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper") or game:GetService("ReplicatedStorage"):FindFirstChild("Dough King") then
-    WebhookBoss = "https://discord.com/api/webhooks/1231609093953687563/CgkOdJAFuvRNOq-yj_Al6BHS0nz9UxLrPlT6fc7Ojn014P38yLJDfTMkyQy4GdMgVX-v"
-    local HttpService = game:GetService("HttpService")
-    local Data = {
-        ["embeds"]= {
-            {            
-                ["title"]= "Boss Find Sea 3";
-                ["color"]= tonumber(0x7269da);
-                ["fields"]= {
-                    {
-                        ["name"] = "Players Count",
-                        ["value"] = "```"..playerCount.."/12```",
-                        ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Name Boss",
-                        ["value"] = "".. CheckNameBossSea3() .. "",
-                        ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Job Id",
-                        ["value"] = "```"..game.JobId.."```",
-                        ["inline"] = true
-                    },
-                    {
-                        ["name"] = "Script Job Id",
-                        ["value"]= '```game:GetService("TeleportService"):TeleportToPlaceInstance('..game.PlaceId..', "'..game.JobId..'", game.Players.LocalPlayer)```',
-                        ["inline"] = true
-                    },
-                }              
-            }
+    local bossName = "Unknown Boss"
+    if game:GetService("ReplicatedStorage"):FindFirstChild("rip_indra True Form") then bossName = "rip_indra True Form" end
+    if game:GetService("ReplicatedStorage"):FindFirstChild("rip_indra") then bossName = "rip_indra" end
+    if game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper") then bossName = "Soul Reaper" end
+    if game:GetService("ReplicatedStorage"):FindFirstChild("Dough King") then bossName = "Dough King" end
+
+    sendWebhook(
+        "https://discord.com/api/webhooks/1231609093953687563/CgkOdJAFuvRNOq-yj_Al6BHS0nz9UxLrPlT6fc7Ojn014P38yLJDfTMkyQy4GdMgVX-v",
+        "⚔️ Boss Found in Sea 3!",
+        {
+            {["name"] = "👥 Players Count", ["value"] = string.format("```%d/12```", playerCount), ["inline"] = true},
+            {["name"] = "👹 Boss Name", ["value"] = "**" .. bossName .. "**", ["inline"] = true},
+            {["name"] = "🔗 Job Id", ["value"] = "```" .. jobId .. "```", ["inline"] = true},
+            {["name"] = "🎮 Script Job Id", ["value"] = scriptJobId, ["inline"] = true}
         }
-    }
-    local Headers = {["Content-Type"]="application/json"}
-    local Encoded = HttpService:JSONEncode(Data)
-    
-    Request = http_request or request or HttpPost or syn.request
-    local Final1 = {Url = WebhookBoss , Body = Encoded, Method = "POST", Headers = Headers}
-    
-    Request(Final1)
+    )
 end
