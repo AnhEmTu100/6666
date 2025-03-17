@@ -580,7 +580,7 @@ end
 
 -- 📌 Lấy HttpService
 local HttpService = game:GetService("HttpService")
-local Webhook_URL = "https://discord.com/api/webhooks/your_webhook_url_here"
+local Webhook_URL = "https://discord.com/api/webhooks/1333851587134754938/8wb5sBb2swZ3tcXQqJb_tBR8IVGPydbfQFl1LpKAhlFOZyaSZC8GAMytiwHhY3EeBaHm"
 
 
 -- 📌 Gửi thông báo lên Webhook Discord (SỬA LỖI TÊN THIẾT BỊ)
@@ -861,7 +861,7 @@ local scriptJobId = string.format(
 -- 🌕 **Full Moon Check**
 if game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149431" and placeId == 7449423635 then
     sendWebhook(
-        "https://discord.com/api/webhooks/1231248855727607900/RL_mO5h21iMdRTWVDYZIAQ46iLGTZydULxrvQDBBagy3wvcRICPl3JzUnTGTU7x-c7Y3",
+        "https://discord.com/api/webhooks/1337387567766831167/Fr_Tz67EyZ9INswnj27xrsPnkRt6Dg8is24JTOAbEw5jYOrzADeJtH4VkyFuxCkCyWn2",
         "🌕 Full Moon Detected!",
         {
             {["name"] = "👥 Players Count", ["value"] = string.format("```%d/12```", playerCount), ["inline"] = true},
@@ -891,7 +891,7 @@ if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") or
    game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") or
    game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
     sendWebhook(
-        "https://discord.com/api/webhooks/1231609089621229699/zsefV_sODXurmythvJz2tbsPY7JrlhKkjlEau6GUuiJ_Z1PO4LSdY07mjwhA5y7IoLnH",
+        "https://discord.com/api/webhooks/1337387567766831167/Fr_Tz67EyZ9INswnj27xrsPnkRt6Dg8is24JTOAbEw5jYOrzADeJtH4VkyFuxCkCyWn2",
         "🏴‍☠️ Elite Boss Spotted!",
         {
             {["name"] = "👥 Players Count", ["value"] = string.format("```%d/12```", playerCount), ["inline"] = true},
