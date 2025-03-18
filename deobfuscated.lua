@@ -2927,7 +2927,7 @@ spawn(function()
             end)
             for i, v in pairs(game.Workspace.Enemies:GetChildren()) do
                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                    if v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy" then
+                    if v.Name=="Demonic Soul" and v.Name=="Posessed Mummy" or v.Name=="Demonic Soul" or v.Name=="Posessed Mummy" then
                         repeat wait(_G.Fast_Delay)
                             if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
                                 _G.UseSkill = true
@@ -2953,18 +2953,12 @@ spawn(function()
                 end
             end
             for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
-                if v.Name == "Reborn Skeleton" then
-                    Tween(v.HumanoidRootPart.CFrame * Pos)
-                elseif v.Name == "Living Zombie" then
-                    Tween(v.HumanoidRootPart.CFrame * Pos)
-                elseif v.Name == "Demonic Soul" then
+                if v.Name == "Demonic Soul" then
                     Tween(v.HumanoidRootPart.CFrame * Pos)
                 elseif v.Name == "Posessed Mummy" then
                     Tween(v.HumanoidRootPart.CFrame * Pos)
                 end
             end
-        end
-    end
 end)
 spawn(function()
     while task.wait() do
@@ -3238,7 +3232,7 @@ spawn(function()
             end)
             for i, v in pairs(game.Workspace.Enemies:GetChildren()) do
                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                    if v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy" then
+                    if v.Name=="Demonic Soul" and v.Name=="Posessed Mummy" or v.Name=="Demonic Soul" or v.Name=="Posessed Mummy" then
                         repeat wait(_G.Fast_Delay)
                             if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
                                 _G.UseSkillGun = true
@@ -3264,18 +3258,12 @@ spawn(function()
                 end
             end
             for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
-                if v.Name == "Reborn Skeleton" then
-                    Tween(v.HumanoidRootPart.CFrame * Pos)
-                elseif v.Name == "Living Zombie" then
-                    Tween(v.HumanoidRootPart.CFrame * Pos)
-                elseif v.Name == "Demonic Soul" then
+                if v.Name == "Demonic Soul" then
                     Tween(v.HumanoidRootPart.CFrame * Pos)
                 elseif v.Name == "Posessed Mummy" then
                     Tween(v.HumanoidRootPart.CFrame * Pos)
                 end
             end
-        end
-    end
 end)
 function EquipToolGun()
     pcall(function()
@@ -3346,7 +3334,7 @@ ToggleBone:OnChanged(function(Value)
     end
 end)
 Options.ToggleBone:SetValue(false)
-local BoneCFrame = CFrame.new(-9517.65, 174.85, 6113.25) or CFrame.new(-9515.75, 174.8521728515625, 6079.40625) or CFrame.new(-9517.65, 174.85, 6113.25) and CFrame.new(-9515.75, 174.8521728515625, 6079.40625)
+local BoneCFrame = CFrame.new(-9517.65, 174.85, 6113.25)
 spawn(function()
     while wait() do
         if _G.AutoBone then
