@@ -6,7 +6,7 @@ local Window = Fluent:CreateWindow({
     TabWidth=160, 
     Theme="R2LX",
     Acrylic=false,
-    Size=UDim2.fromOffset(500, 320), 
+    Size=UDim2.fromOffset(530, 350), 
     MinimizeKey=Enum.KeyCode.End
 })
 local Tabs = {
@@ -3346,7 +3346,7 @@ ToggleBone:OnChanged(function(Value)
     end
 end)
 Options.ToggleBone:SetValue(false)
-local BoneCFrame = CFrame.new(-9515.75, 174.8521728515625, 6079.40625)
+local BoneCFrame = CFrame.new(-9517.65, 174.85, 6113.25)
 spawn(function()
     while wait() do
         if _G.AutoBone then
@@ -3432,6 +3432,7 @@ spawn(function()
         end
     end
 end)
+
 Tabs.Main:AddButton({
     Title="Cầu Nguyện",
     Description="",
