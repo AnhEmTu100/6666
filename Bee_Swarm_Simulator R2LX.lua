@@ -671,17 +671,46 @@ game.StarterGui:SetCore("SendNotification", {
     Duration = 5
 })
 
+Library:SetWatermarkVisibility(true)
+
+
+local FrameTimer = tick()
+local FrameCounter = 0;
+local FPS = 120;
+
+local WatermarkConnection = game:GetService('RunService').RenderStepped:Connect(function()
+    FrameCounter += 1;
+
+    if (tick() - FrameTimer) >= 1 then
+        FPS = FrameCounter;
+        FrameTimer = tick();
+        FrameCounter = 0;
+    end;
+
+    Library:SetWatermark(('R2LX HUB V1 | %s fps | %s ms | '):format(
+        math.floor(FPS),
+        math.floor(game:GetService('Stats').Network.ServerStatsItem['Data Ping']:GetValue())
+    ));
+end);
+
+
+Library:OnUnload(function()
+    WatermarkConnection:Disconnect()
+
+    print('Unloaded!')
+    Library.Unloaded = true
+end)
 
 local placeId = game.PlaceId
 local supportedGames = {
-    [2753915548] = true, -- Sea 1
+    [2753915549] = true, -- Sea 1
     [4442272183] = true, -- Sea 2
     [7449423635] = true  -- Sea 3
 }
 
 if supportedGames[placeId] then
     local v = {
-        [2753915548] = "https://raw.githubusercontent.com/AnhEmTu100/6666/refs/heads/main/deobfuscated.lua",
+        [2753915549] = "https://raw.githubusercontent.com/AnhEmTu100/6666/refs/heads/main/deobfuscated.lua",
         [4442272183] = "https://raw.githubusercontent.com/AnhEmTu100/6666/refs/heads/main/deobfuscated.lua",
         [7449423635] = "https://raw.githubusercontent.com/AnhEmTu100/6666/refs/heads/main/deobfuscated.lua"
     }
