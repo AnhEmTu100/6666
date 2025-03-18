@@ -3346,7 +3346,7 @@ ToggleBone:OnChanged(function(Value)
     end
 end)
 Options.ToggleBone:SetValue(false)
-local BoneCFrame = CFrame.new(-9517.65, 174.85, 6113.25)
+local BoneCFrame = CFrame.new(-9517.65, 174.85, 6113.25) or CFrame.new(-9515.75, 174.8521728515625, 6079.40625) or CFrame.new(-9517.65, 174.85, 6113.25) and CFrame.new(-9515.75, 174.8521728515625, 6079.40625)
 spawn(function()
     while wait() do
         if _G.AutoBone then
