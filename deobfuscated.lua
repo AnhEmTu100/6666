@@ -2927,7 +2927,7 @@ spawn(function()
             end)
             for i, v in pairs(game.Workspace.Enemies:GetChildren()) do
                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                    if v.Name=="Demonic Soul" and v.Name=="Posessed Mummy" or v.Name=="Demonic Soul" or v.Name=="Posessed Mummy" then
+                    if v.Name=="Demonic Soul" or v.Name=="Posessed Mummy" then
                         repeat wait(_G.Fast_Delay)
                             if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
                                 _G.UseSkill = true
@@ -3232,7 +3232,7 @@ spawn(function()
             end)
             for i, v in pairs(game.Workspace.Enemies:GetChildren()) do
                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                    if v.Name=="Demonic Soul" and v.Name=="Posessed Mummy" or v.Name=="Demonic Soul" or v.Name=="Posessed Mummy" then
+                    if v.Name=="Demonic Soul" or v.Name=="Posessed Mummy" then
                         repeat wait(_G.Fast_Delay)
                             if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
                                 _G.UseSkillGun = true
