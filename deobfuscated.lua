@@ -2185,9 +2185,9 @@ function to(p)
         end)
     end
 
-local ScreenGui and a or ScreenGui or a = Instance.new("ScreenGui")
-local ImageButton and b or ImageButton or b = Instance.new("ImageButton")
-local UICorner and c or UICorner or c = Instance.new("UICorner")
+local ScreenGui and a = Instance.new("ScreenGui")
+local ImageButton and b = Instance.new("ImageButton")
+local UICorner and c = Instance.new("UICorner")
 local d = Instance.new("UIGradient")
 local e = Instance.new("UIAspectRatioConstraint")
 local ParticleEmitter = Instance.new("ParticleEmitter")
