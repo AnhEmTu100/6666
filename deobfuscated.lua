@@ -181,7 +181,7 @@ QuestLv=1
 NameMon="Fishman Warrior"
 CFrameQ=CFrame.new(61122.65234375, 18.497442245483, 1569.3997802734)
 CFrameMon=CFrame.new(60844.10546875, 98.462875366211, 1298.3985595703)
-if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>3000 then
+if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>1000000000 then
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
 end
 elseif Lv==400 or Lv<=449 or SelectMonster=="Fishman Commando" then 
@@ -191,7 +191,7 @@ QuestLv=2
 NameMon="Fishman Commando"
 CFrameQ=CFrame.new(61122.65234375, 18.497442245483, 1569.3997802734)
 CFrameMon=CFrame.new(61738.3984375, 64.207321166992, 1433.8375244141)
-if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>3000 then
+if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>1000000000 then
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
 end
 elseif Lv==10 or Lv<=474 or SelectMonster=="God's Guard" then 
@@ -201,7 +201,7 @@ QuestLv=1
 NameMon="God's Guard"
 CFrameQ=CFrame.new(-4721.8603515625, 845.30297851563,-1953.8489990234)
 CFrameMon=CFrame.new(-4628.0498046875, 866.92877197266,-1931.2352294922)
-if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>3000 then
+if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>1000000000 then
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248,-1667.55688))
 end
 elseif Lv==475 or Lv<=524 or SelectMonster=="Shanda" then 
@@ -211,7 +211,7 @@ QuestLv=2
 NameMon="Shanda"
 CFrameQ=CFrame.new(-7863.1596679688, 5545.5190429688,-378.42266845703)
 CFrameMon=CFrame.new(-7685.1474609375, 5601.0751953125,-441.38876342773)
-if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>3000 then
+if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>1000000000 then
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625,-380.29119873047))
 end
 elseif Lv==525 or Lv<=549 or SelectMonster=="Royal Squad" then 
@@ -350,7 +350,7 @@ QuestLv=1
 NameMon="Ship Deckhand"
 CFrameQ=CFrame.new(1040.2927246094, 125.08293151855, 32911.0390625)
 CFrameMon=CFrame.new(921.12365722656, 125.9839553833, 33088.328125)
-if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>20000 then
+if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>1000000000 then
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
 end
 elseif Lv==1275 or Lv<=1299 or SelectMonster=="Ship Engineer"  then 
@@ -360,7 +360,7 @@ QuestLv=2
 NameMon="Ship Engineer"
 CFrameQ=CFrame.new(1040.2927246094, 125.08293151855, 32911.0390625)
 CFrameMon=CFrame.new(886.28179931641, 40.47790145874, 32800.83203125)
-if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>20000 then
+if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>1000000000 then
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
 end
 elseif Lv==1300 or Lv<=1324 or SelectMonster=="Ship Steward" then 
@@ -370,7 +370,7 @@ QuestLv=1
 NameMon="Ship Steward"
 CFrameQ=CFrame.new(971.42065429688, 125.08293151855, 33245.54296875)
 CFrameMon=CFrame.new(943.85504150391, 129.58183288574, 33444.3671875)
-if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>20000 then
+if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>1000000000 then
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
 end
 elseif Lv==1325 or Lv<=1349 or SelectMonster=="Ship Officer" then 
@@ -380,7 +380,7 @@ QuestLv=2
 NameMon="Ship Officer"
 CFrameQ=CFrame.new(971.42065429688, 125.08293151855, 33245.54296875)
 CFrameMon=CFrame.new(955.38458251953, 181.08335876465, 33331.890625)
-if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>20000 then
+if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>1000000000 then
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
 end
 elseif Lv==1350 or Lv<=1374 or SelectMonster=="Arctic Warrior" then 
@@ -390,7 +390,7 @@ QuestLv=1
 NameMon="Arctic Warrior"
 CFrameQ=CFrame.new(5668.1372070313, 28.202531814575,-6484.6005859375)
 CFrameMon=CFrame.new(5935.4541015625, 77.26016998291,-6472.7568359375)
-if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>20000 then
+if _G.AutoLevel and (CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>1000000000 then
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-6508.5581054688, 89.034996032715,-132.83953857422))
 end
 elseif Lv==1375 or Lv<=1424 or SelectMonster=="Snow Lurker" then
@@ -976,7 +976,7 @@ elseif SelectMaterial=="Angel Wings" then
 MMon="God's Guard"
 MPos=CFrame.new(-4698,845,-1912)
 SP="Default"
-if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-7859.09814, 5544.19043,-381.476196)).Magnitude>=5000 then
+if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-7859.09814, 5544.19043,-381.476196)).Magnitude>=1000000000 then
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7859.09814, 5544.19043,-381.476196))
 end
 elseif SelectMaterial=="Leather" then
@@ -1016,7 +1016,7 @@ elseif Sea1 then
 MMon="Fishman Warrior"
 MPos=CFrame.new(61123,19,1569)
 SP="Default"
-if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(61163.8515625, 5.342342376708984, 1819.7841796875)).Magnitude>=17000 then
+if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(61163.8515625, 5.342342376708984, 1819.7841796875)).Magnitude>=1000000000 then
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 5.342342376708984, 1819.7841796875))
 end
 end
@@ -2035,7 +2035,7 @@ function AttackNoCoolDown()
         for _, enemy in ipairs(enemies) do
             if not enemy:GetAttribute("IsBoat") and IsEntityAlive(enemy) then
                 local head = enemy:FindFirstChild("Head")
-                if head and (playerPos - head.Position).Magnitude <= 60 then
+                if head and (playerPos - head.Position).Magnitude <= 1000000000 then
                     table.insert(targets, { enemy, head })
                     mainTarget = head
                 end
@@ -2143,11 +2143,11 @@ function to(P)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=P
         task.wait()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=P
-    until (P.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=2000
+    until (P.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000
 end
 function to(p)
         pcall(function()
-            if (p.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>=2000 and not Auto_Raid and game.Players.LocalPlayer.Character.Humanoid.Health>0 then
+            if (p.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>=1000000000 and not Auto_Raid and game.Players.LocalPlayer.Character.Humanoid.Health>0 then
                 if NameMon=="FishmanQuest" then
                     Tween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
                     wait()
@@ -2178,7 +2178,7 @@ function to(p)
                         wait(.05)
                         game.Players.LocalPlayer.Character.Head:Destroy()
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=p
-                    until (p.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<2500 and game.Players.LocalPlayer.Character.Humanoid.Health>0
+                    until (p.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<1000000000 and game.Players.LocalPlayer.Character.Humanoid.Health>0
                     wait()
                 end
             end
@@ -2396,7 +2396,7 @@ end)
           if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible==false then
           game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
           Tween(CFrameQ)
-          if (CFrameQ.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=5 then
+          if (CFrameQ.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
           game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
           end
           elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible==true then
@@ -2423,7 +2423,7 @@ end)
           end
           for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
           if string.find(v.Name,NameMon) then
-          if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-v.Position).Magnitude>=10 then
+          if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-v.Position).Magnitude>=1000000000 then
             Tween(v.HumanoidRootPart.CFrame*Pos)
           end
           end
@@ -2453,7 +2453,7 @@ end)
           for i,v in pairs (game.Workspace.Enemies:GetChildren()) do
           if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health>0 then
           if v.Name then
-          if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-v:FindFirstChild("HumanoidRootPart").Position).Magnitude<=5000 then
+          if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-v:FindFirstChild("HumanoidRootPart").Position).Magnitude<=1000000000 then
             repeat wait(_G.Fast_Delay)
                 AttackNoCoolDown()
                 bringmob=true
@@ -2490,10 +2490,10 @@ end)
             if _G.CastleRaid then
                 pcall(function()
                     local CFrameCastleRaid = CFrame.new(-5496.17432, 313.768921,-2841.53027, 0.924894512, 7.37058015e-09, 0.380223751, 3.5881019e-08, 1,-1.06665446e-07,-0.380223751, 1.12297109e-07, 0.924894512)
-                    if (CFrame.new(-5539.3115234375, 313.800537109375,-2972.372314453125).Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=500 then
+                    if (CFrame.new(-5539.3115234375, 313.800537109375,-2972.372314453125).Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                             if _G.CastleRaid and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health>0 then
-                                if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<2000 then
+                                if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<1000000000 then
                                     repeat wait(_G.Fast_Delay)
                                         AttackNoCoolDown()
                                         AutoHaki()
@@ -2737,7 +2737,7 @@ spawn(function()
             pcall(function()
                 for i, v in pairs(game.Workspace.Enemies:GetChildren()) do
                     if v.Name and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).Magnitude <= 5000 then
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).Magnitude <= 1000000000 then
                             repeat wait(_G.Fast_Delay)
                                 if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
                                     _G.UseSkill = true
@@ -2912,7 +2912,7 @@ spawn(function()
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                     Tween(CFrameQ)
                 end
-                if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+                if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1000000000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
                 end
             end)
@@ -3048,7 +3048,7 @@ spawn(function()
             pcall(function()
                 for i, v in pairs(game.Workspace.Enemies:GetChildren()) do
                     if v.Name and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).Magnitude <= 5000 then
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).Magnitude <= 1000000000 then
                             repeat wait(_G.Fast_Delay)
                                 if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
                                     _G.UseSkillGun = true
@@ -3186,7 +3186,7 @@ spawn(function()
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                     Tween(CFrameQ)
                 end
-                if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+                if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1000000000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
                 end
             end)
@@ -3389,7 +3389,7 @@ spawn(function()
                 end
                 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible==false then
                  Tween(BoneCFrame)
-                if (BoneCFrame.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=3 then    
+                if (BoneCFrame.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then    
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest","HauntedQuest2",1)
                     end
                 elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible==true then
@@ -3434,7 +3434,7 @@ spawn(function()
         if _G.AutoBoneNoQuest then
             pcall(function()
                 Tween(BoneNoQuest)
-                if (BoneNoQuest.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=3 then
+                if (BoneNoQuest.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                 end
                 if game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") and game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") then
                 
@@ -3849,7 +3849,7 @@ local boss = Tabs.Main:AddSection("Trùm")
           else
             for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
           if string.find(v.Name, Mon) then
-          if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-v.Position).Magnitude>=10 then
+          if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-v.Position).Magnitude>=1000000000 then
           Tween(v.HumanoidRootPart.CFrame*Pos)
           end
           end
@@ -4716,7 +4716,7 @@ spawn(function()
             pcall(function()
                 if game:GetService("Workspace").Map.Jungle.Final.Part.Transparency==0 then
                     if game:GetService("Workspace").Map.Jungle.QuestPlates.Door.Transparency==0 then
-                        if (CFrame.new(-1612.55884, 36.9774132, 148.719543, 0.37091279, 3.0717151e-09,-0.928667724, 3.97099491e-08, 1, 1.91679348e-08, 0.928667724,-4.39869794e-08, 0.37091279).Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=100 then
+                        if (CFrame.new(-1612.55884, 36.9774132, 148.719543, 0.37091279, 3.0717151e-09,-0.928667724, 3.97099491e-08, 1, 1.91679348e-08, 0.928667724,-4.39869794e-08, 0.37091279).Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                             Tween(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
                             wait(1)
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game:GetService("Workspace").Map.Jungle.QuestPlates.Plate1.Button.CFrame
@@ -4851,7 +4851,7 @@ spawn(function()
                         end
                     end
                 else
-                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-PolePos.Position).Magnitude<1500 then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-PolePos.Position).Magnitude<1000000000 then
                         Tween(PolePos)
                     end
                 end
@@ -4895,7 +4895,7 @@ spawn(function()
                         end
                     end
                 else
-                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-PolePos.Position).Magnitude<1500 then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-PolePos.Position).Magnitude<1000000000 then
                         Tween(PolePos)
                     end
                 end
@@ -4939,7 +4939,7 @@ spawn(function()
                         end
                     end
                 else
-                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-WardenPos.Position).Magnitude<1500 then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-WardenPos.Position).Magnitude<1000000000 then
                         Tween(WardenPos)
                     end
                 end
@@ -4976,7 +4976,7 @@ if Sea3 then
                             end
                         end
                     elseif game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hallow Essence") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Hallow Essence") then
-                        repeat Tween(CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125)) wait() until (CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125).Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=8                        
+                        repeat Tween(CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125)) wait() until (CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125).Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000                        
                       wait()
                         EquipTool("Hallow Essence")
                     else
@@ -5062,15 +5062,15 @@ if Sea3 then
                         if _G.Auto_Holy_Torch then
                             pcall(function()
                                 wait()
-                                repeat Tween(CFrame.new(-10752, 417,-9366)) wait() until not _G.Auto_Holy_Torch or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-10752, 417,-9366)).Magnitude<=10
+                                repeat Tween(CFrame.new(-10752, 417,-9366)) wait() until not _G.Auto_Holy_Torch or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-10752, 417,-9366)).Magnitude<=1000000000
                                 wait()
-                                repeat Tween(CFrame.new(-11672, 334,-9474)) wait() until not _G.Auto_Holy_Torch or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-11672, 334,-9474)).Magnitude<=10
+                                repeat Tween(CFrame.new(-11672, 334,-9474)) wait() until not _G.Auto_Holy_Torch or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-11672, 334,-9474)).Magnitude<=1000000000
                                 wait()
-                                repeat Tween(CFrame.new(-12132, 521,-10655)) wait() until not _G.Auto_Holy_Torch or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-12132, 521,-10655)).Magnitude<=10
+                                repeat Tween(CFrame.new(-12132, 521,-10655)) wait() until not _G.Auto_Holy_Torch or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-12132, 521,-10655)).Magnitude<=1000000000
                                 wait()
-                                repeat Tween(CFrame.new(-13336, 486,-6985)) wait() until not _G.Auto_Holy_Torch or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-13336, 486,-6985)).Magnitude<=10
+                                repeat Tween(CFrame.new(-13336, 486,-6985)) wait() until not _G.Auto_Holy_Torch or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-13336, 486,-6985)).Magnitude<=1000000000
                                 wait()
-                                repeat Tween(CFrame.new(-13489, 332,-7925)) wait() until not _G.Auto_Holy_Torch or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-13489, 332,-7925)).Magnitude<=10
+                                repeat Tween(CFrame.new(-13489, 332,-7925)) wait() until not _G.Auto_Holy_Torch or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-13489, 332,-7925)).Magnitude<=1000000000
                             end)
                         end
                     end
@@ -5108,7 +5108,7 @@ spawn(function()
                         end
                     end
                 else
-                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-PolePos.Position).Magnitude<1500 then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-PolePos.Position).Magnitude<1000000000 then
                         Tween(PolePos)
                     end
                 end
@@ -5163,7 +5163,7 @@ spawn(function()
                         end
                     else
                         Tween(CFrame.new(-12443.8671875, 332.40396118164,-7675.4892578125))
-                        if (Vector3.new(-12443.8671875, 332.40396118164,-7675.4892578125)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=30 then
+                        if (Vector3.new(-12443.8671875, 332.40396118164,-7675.4892578125)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                             wait(1.5)
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", "CitizenQuest", 1)
                         end
@@ -5196,7 +5196,7 @@ spawn(function()
                         end
                     else
                         Tween(CFrame.new(-12443.8671875, 332.40396118164,-7675.4892578125))
-                        if (CFrame.new(-12443.8671875, 332.40396118164,-7675.4892578125).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=4 then
+                        if (CFrame.new(-12443.8671875, 332.40396118164,-7675.4892578125).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                             wait(1.5)
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CitizenQuestProgress", "Citizen")
                         end
@@ -5230,7 +5230,7 @@ spawn(function()
                             Tween(CFrame.new(-12444.78515625, 332.40396118164,-7673.1806640625)) 
                             wait() 
                         until not _G.Auto_ObservationV2 
-                            or (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-12444.78515625, 332.40396118164,-7673.1806640625)).Magnitude<=10
+                            or (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-12444.78515625, 332.40396118164,-7673.1806640625)).Magnitude<=1000000000
                         wait(0.5)
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CitizenQuestProgress", "Citizen")
                     elseif game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Fruit Bowl") 
@@ -5239,7 +5239,7 @@ spawn(function()
                             Tween(CFrame.new(-10920.125, 624.20275878906,-10266.995117188)) 
                             wait() 
                         until not _G.Auto_ObservationV2 
-                            or (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-10920.125, 624.20275878906,-10266.995117188)).Magnitude<=10
+                            or (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-10920.125, 624.20275878906,-10266.995117188)).Magnitude<=1000000000
                         wait(0.5)
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk2", "Start")
                         wait(1)
@@ -5276,7 +5276,7 @@ spawn(function()
             if _G.Auto_RainbowHaki then
                 if not game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible then
                     Tween(CFrame.new(-11892.0703125, 930.57672119141,-8760.1591796875))
-                    if (Vector3.new(-11892.0703125, 930.57672119141,-8760.1591796875)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=30 then
+                    if (Vector3.new(-11892.0703125, 930.57672119141,-8760.1591796875)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                         wait(1.5)
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("HornedMan", "Bet")
                     end
@@ -5377,7 +5377,7 @@ spawn(function()
                     end
                 else
                     Tween(CFrame.new(-11892.0703125, 930.57672119141,-8760.1591796875))
-                    if (Vector3.new(-11892.0703125, 930.57672119141,-8760.1591796875)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=30 then
+                    if (Vector3.new(-11892.0703125, 930.57672119141,-8760.1591796875)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                         wait(1.5)
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("HornedMan", "Bet")
                     end
@@ -5400,14 +5400,14 @@ spawn(function()
             pcall(function()
                 if _G.Auto_SkullGuitar then
                     if GetWeaponInventory("Skull Guitar")==false then
-                        if (CFrame.new(-9681.458984375, 6.139880657196045, 6341.3720703125).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=5000 then
+                        if (CFrame.new(-9681.458984375, 6.139880657196045, 6341.3720703125).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                             if game:GetService("Workspace").NPCs:FindFirstChild("Skeleton Machine") then
                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("soulGuitarBuy",true)
                             else
                                 if game:GetService("Workspace").Map["Haunted Castle"].Candle1.Transparency==0 then
                                     if game:GetService("Workspace").Map["Haunted Castle"].Placard1.Left.Part.Transparency==0 then
                                         Quest2=true
-                                        repeat wait() Tween(CFrame.new(-8762.69140625, 176.84783935546875, 6171.3076171875)) until (CFrame.new(-8762.69140625, 176.84783935546875, 6171.3076171875).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=3 or not _G.Auto_SkullGuitar
+                                        repeat wait() Tween(CFrame.new(-8762.69140625, 176.84783935546875, 6171.3076171875)) until (CFrame.new(-8762.69140625, 176.84783935546875, 6171.3076171875).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 or not _G.Auto_SkullGuitar
                                         wait(1)
                                         fireclickdetector(game:GetService("Workspace").Map["Haunted Castle"].Placard7.Left.ClickDetector)
                                         wait(1)
@@ -5426,7 +5426,7 @@ spawn(function()
                                     elseif game:GetService("Workspace").Map["Haunted Castle"].Tablet.Segment1:FindFirstChild("ClickDetector") then
                                         if game:GetService("Workspace").Map["Haunted Castle"]["Lab Puzzle"].ColorFloor.Model.Part1:FindFirstChild("ClickDetector") then
                                             Quest4=true
-                                            repeat wait() Tween(CFrame.new(-9553.5986328125, 65.62338256835938, 6041.58837890625)) until (CFrame.new(-9553.5986328125, 65.62338256835938, 6041.58837890625).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=3 or not _G.Auto_SkullGuitar
+                                            repeat wait() Tween(CFrame.new(-9553.5986328125, 65.62338256835938, 6041.58837890625)) until (CFrame.new(-9553.5986328125, 65.62338256835938, 6041.58837890625).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 or not _G.Auto_SkullGuitar
                                             wait(1)
                                             Tween(game:GetService("Workspace").Map["Haunted Castle"]["Lab Puzzle"].ColorFloor.Model.Part3.CFrame)
                                             wait(1)
@@ -5539,7 +5539,7 @@ spawn(function()
                         end
                     end
                 else
-                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-BuddyPos.Position).Magnitude<1500 then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-BuddyPos.Position).Magnitude<1000000000 then
                         Tween(BuddyPos)
                     end
                 end
@@ -5667,7 +5667,7 @@ spawn(function()
                                 end
                             end
                         else
-                            if (CFrame.new(-12361.7060546875, 603.3547973632812,-6550.5341796875).Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=100 then
+                            if (CFrame.new(-12361.7060546875, 603.3547973632812,-6550.5341796875).Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Good")
                                 wait(1)
                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Evil")
@@ -5751,7 +5751,7 @@ spawn(function()
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if v:FindFirstChild("HazeESP") then
                             repeat wait()
-                                if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>2000 then
+                                if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>1000000000 then
                                     Tween(v.HumanoidRootPart.CFrame*Pos)
                                 else
                                     EquipTool(Sword)
@@ -5772,7 +5772,7 @@ spawn(function()
                         else
                             for x,y in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
                                 if y:FindFirstChild("HazeESP") then
-                                    if (y.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>2000 then
+                                    if (y.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude>1000000000 then
                                         Tween(y.HumanoidRootPart.CFrameMon*Pos)
                                     else
                                         Tween(y.HumanoidRootPart.CFrame*Pos)
@@ -5870,10 +5870,10 @@ spawn(function()
         while wait() do
             if Auto_Quest_Tushita_2 then
                 pcall(function()
-                    if (CFrame.new(-5539.3115234375, 313.800537109375,-2972.372314453125).Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=500 then
+                    if (CFrame.new(-5539.3115234375, 313.800537109375,-2972.372314453125).Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                             if Auto_Quest_Tushita_2 and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health>0 then
-                                if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<2000 then
+                                if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<1000000000 then
                                     repeat wait()
                                         EquipTool(Sword)
                                         Tween(v.HumanoidRootPart.CFrame*Pos)
@@ -5991,7 +5991,7 @@ if Sea2 then
                                     AttackNoCoolDown()
                                     repeat Tween(CFrame.new(448.46756, 199.356781,-441.389252))
                                         wait()
-                                    until not _G.Factory or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(448.46756, 199.356781,-441.389252)).Magnitude<=10
+                                    until not _G.Factory or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(448.46756, 199.356781,-441.389252)).Magnitude<=1000000000
                                     EquipTool(SelectWeapon)
                                     AutoHaki()
                                     Tween(v.HumanoidRootPart.CFrame*Pos)
@@ -6008,7 +6008,7 @@ if Sea2 then
                     elseif game.ReplicatedStorage:FindFirstChild("Core") then
                         repeat Tween(CFrame.new(448.46756, 199.356781,-441.389252))
                             wait()
-                        until not _G.Factory or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(448.46756, 199.356781,-441.389252)).Magnitude<=10
+                        until not _G.Factory or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(448.46756, 199.356781,-441.389252)).Magnitude<=1000000000
                     end
                 end
             end
@@ -6047,7 +6047,7 @@ spawn(function()
                     repeat
                         task.wait()
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(2284.912109375, 15.537666320801, 905.48291015625))
-                    until (CFrame.new(2284.912109375, 15.537666320801, 905.48291015625).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=4 or _G.AutoFarmSwan==false
+                    until (CFrame.new(2284.912109375, 15.537666320801, 905.48291015625).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 or _G.AutoFarmSwan==false
                 end
             end
         end
@@ -6150,7 +6150,7 @@ if Sea2 then
                     if not game:GetService("Players").LocalPlayer.Data.Race:FindFirstChild("Evolved") then
                         if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Alchemist", "1")==0 then
                             Tween(CFrame.new(-2779.83521, 72.9661407,-3574.02002,-0.730484903, 6.39014104e-08,-0.68292886, 3.59963224e-08, 1, 5.50667032e-08, 0.68292886, 1.56424669e-08,-0.730484903))
-                            if (Vector3.new(-2779.83521, 72.9661407,-3574.02002)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=4 then
+                            if (Vector3.new(-2779.83521, 72.9661407,-3574.02002)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                                 wait(1.3)
                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Alchemist", "2")
                             end
@@ -7117,7 +7117,7 @@ spawn(function()
                         repeat 
                             Tween(CFrame1) 
                             wait() 
-                        until (CFrame1.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=3 or _G.Auto_Sea2==false
+                        until (CFrame1.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 or _G.Auto_Sea2==false
                         wait(1.1)
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress","Detective")
                         wait(0.5)
@@ -7125,7 +7125,7 @@ spawn(function()
                         repeat 
                             Tween(CFrame.new(1347.7124, 37.3751602,-1325.6488)) 
                             wait() 
-                        until (Vector3.new(1347.7124, 37.3751602,-1325.6488)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=3 or _G.Auto_Sea2==false
+                        until (Vector3.new(1347.7124, 37.3751602,-1325.6488)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 or _G.Auto_Sea2==false
                         wait(0.5)
                     else
                         if game:GetService("Workspace").Map.Ice.Door.CanCollide==false and game:GetService("Workspace").Map.Ice.Door.Transparency==1 then
@@ -7183,7 +7183,7 @@ spawn(function()
                     _G.AutoLevel=false
                     if game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("ZQuestProgress", "General")==0 then
                         Tween(CFrame.new(-1926.3221435547, 12.819851875305, 1738.3092041016))
-                        if (CFrame.new(-1926.3221435547, 12.819851875305, 1738.3092041016).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=10 then
+                        if (CFrame.new(-1926.3221435547, 12.819851875305, 1738.3092041016).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                             wait(1.5)
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ZQuestProgress", "Begin")
                         end
@@ -7206,7 +7206,7 @@ spawn(function()
                                     until _G.AutoSea3==false or v.Humanoid.Health<=0 or not v.Parent
                                 end
                             end
-                        elseif not game:GetService("Workspace").Enemies:FindFirstChild("rip_indra") and (CFrame.new(-26880.93359375, 22.848554611206, 473.18951416016).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000 then
+                        elseif not game:GetService("Workspace").Enemies:FindFirstChild("rip_indra") and (CFrame.new(-26880.93359375, 22.848554611206, 473.18951416016).Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                             Tween(CFrame.new(-26880.93359375, 22.848554611206, 473.18951416016))
                         end
                     end
@@ -8301,8 +8301,8 @@ spawn(function()
                 if character and character:FindFirstChild("HumanoidRootPart") then
                     local locations = game:GetService("Workspace")["_WorldOrigin"].Locations
                     local pos = character.HumanoidRootPart.Position
-                    if (pos-Vector3.new(-6438.73535, 250.645355,-4501.50684)).Magnitude<1 or
-                       (pos-Vector3.new(-5017.40869, 314.844055,-2823.0127)).Magnitude<1 then
+                    if (pos-Vector3.new(-6438.73535, 250.645355,-4501.50684)).Magnitude<1000000000 or
+                       (pos-Vector3.new(-5017.40869, 314.844055,-2823.0127)).Magnitude<1000000000 then
                         visitedIslands={}  
                     end
                     if locations:FindFirstChild("Island 1") then
@@ -8697,7 +8697,7 @@ spawn(function()
             if _G.AutoKillTrial then
                 for _, v in pairs(game:GetService("Players"):GetChildren()) do
                     if v.Name and v.Name ~=game.Players.LocalPlayer.Name and 
-                       (v.Character.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=100 then
+                       (v.Character.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                         if v.Character.Humanoid.Health>0 then
                             repeat
                                 wait(_G.Fast_Delay)
@@ -9054,7 +9054,7 @@ Tabs.Shop:AddButton({
         local character = player.Character or player.CharacterAdded:Wait()
         repeat
             wait()
-        until (character.HumanoidRootPart.Position-targetPosition).Magnitude<1
+        until (character.HumanoidRootPart.Position-targetPosition).Magnitude<1000000000
         local args = {
             [1]={
                 ["NPC"]="Dragon Wizard",
