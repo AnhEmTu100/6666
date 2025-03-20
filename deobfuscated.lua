@@ -6,7 +6,7 @@ local Window = Fluent:CreateWindow({
     TabWidth=160, 
     Theme="R2LX",
     Acrylic=false,
-    Size=UDim2.fromOffset(500, 320), 
+    Size=UDim2.fromOffset(530, 350), 
     MinimizeKey=Enum.KeyCode.End
 })
 local Tabs = {
@@ -6106,7 +6106,7 @@ if Sea2 or Sea3 then
                 if _G.Auto_Buy_Enchancement then
                     local args = {
                         [1]="ColorsDealer",
-                        [2]="2"
+                        [2]="1"
                     }
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
                 end 
@@ -7473,99 +7473,108 @@ elseif Sea3 then
         }
 end
 
-local DropdownNPC = Tabs.Teleport:AddDropdown("DropdownNPC",{
-    Title="Chọn NPC",
-    Description="",
-    Values=TELENPC,
-    Multi=false,
-    Default=1,
+local DropdownIslandNpc = Tabs.Teleport:AddDropdown("DropdownIslandNpc", {
+    Title = "Dropdown",
+    Values = TELENPC,
+    Multi = false,
+    Default = 1,
 })
-DropdownNPC:SetValue(_G.SelectNPC)
-DropdownNPC:OnChanged(function(Value)
-    _G.SelectNPC=Value
+
+DropdownIslandNpc:SetValue("...")
+DropdownIslandNpc:OnChanged(function(Value)
+    _G.SelectNPC = Value
 end)
+
 Tabs.Teleport:AddButton({
-    Title="Bay Đến NPC",
-    Description="",
-    Callback=function()
+    Title = "Tween",
+    Description = "Bay Đến NPC",
+    Callback = function()
             if _G.SelectNPC == "Dargon Berath" then
-                topos(CFrame.new(703.372986, 186.985519, 654.522034, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+                Tween2(CFrame.new(703.372986, 186.985519, 654.522034, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Mtsterious Man" then
-                topos(CFrame.new(-2574.43335, 1627.92371, -3739.35767, 0.378697902, -9.06400288e-09, 0.92552036, -8.95582009e-09, 1, 1.34578926e-08, -0.92552036, -1.33852689e-08, 0.378697902))
+                Tween2(CFrame.new(-2574.43335, 1627.92371, -3739.35767, 0.378697902, -9.06400288e-09, 0.92552036, -8.95582009e-09, 1, 1.34578926e-08, -0.92552036, -1.33852689e-08, 0.378697902))
             elseif _G.SelectNPC == "Mysterious Scientist" then
-                topos(CFrame.new(-6437.87793, 250.645355, -4498.92773, 0.502376854, -1.01223634e-08, -0.864648759, 2.34106086e-08, 1, 1.89508653e-09, 0.864648759, -2.11940012e-08, 0.502376854))
+                Tween2(CFrame.new(-6437.87793, 250.645355, -4498.92773, 0.502376854, -1.01223634e-08, -0.864648759, 2.34106086e-08, 1, 1.89508653e-09, 0.864648759, -2.11940012e-08, 0.502376854))
             elseif _G.SelectNPC == "Awakening Expert" then
-                topos(CFrame.new(-408.098846, 16.0459061, 247.432846, 0.028394036, 6.17599138e-10, 0.999596894, -5.57905944e-09, 1, -4.59372484e-10, -0.999596894, -5.56376767e-09, 0.028394036))
+                Tween2(CFrame.new(-408.098846, 16.0459061, 247.432846, 0.028394036, 6.17599138e-10, 0.999596894, -5.57905944e-09, 1, -4.59372484e-10, -0.999596894, -5.56376767e-09, 0.028394036))
             elseif _G.SelectNPC == "Nerd" then
-                topos(CFrame.new(-401.783722, 73.0859299, 262.306702, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+                Tween2(CFrame.new(-401.783722, 73.0859299, 262.306702, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Bar Manager" then
-                topos(CFrame.new(-385.84726, 73.0458984, 316.088806, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+                Tween2(CFrame.new(-385.84726, 73.0458984, 316.088806, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Blox Fruits Dealer" then
-                topos(CFrame.new(-450.725464, 73.0458984, 355.636902, -0.780352175, -2.7266168e-08, 0.625340283, 9.78516468e-09, 1, 5.58128797e-08, -0.625340283, 4.96727601e-08, -0.780352175))
+                Tween2(CFrame.new(-450.725464, 73.0458984, 355.636902, -0.780352175, -2.7266168e-08, 0.625340283, 9.78516468e-09, 1, 5.58128797e-08, -0.625340283, 4.96727601e-08, -0.780352175))
             elseif _G.SelectNPC == "Trevor" then
-                topos(CFrame.new(-341.498322, 331.886444, 643.024963, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+                Tween2(CFrame.new(-341.498322, 331.886444, 643.024963, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Plokster" then
                 topos( CFrame.new(-1885.16016, 88.3838196, -1912.28723, -0.513468027, 0, 0.858108759, 0, 1, 0, -0.858108759, 0, -0.513468027))
             elseif _G.SelectNPC == "Enhancement Editor" then
-                topos(CFrame.new(-346.820221, 72.9856339, 1194.36218, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+                Tween2(CFrame.new(-346.820221, 72.9856339, 1194.36218, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Pirate Recruiter" then  
-                topos(CFrame.new(-428.072998, 72.9495239, 1445.32422, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+                Tween2(CFrame.new(-428.072998, 72.9495239, 1445.32422, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Marines Recruiter" then
-                topos(CFrame.new(-1349.77295, 72.9853363, -1045.12964, 0.866493046, 0, -0.499189168, 0, 1, 0, 0.499189168, 0, 0.866493046))
+                Tween2(CFrame.new(-1349.77295, 72.9853363, -1045.12964, 0.866493046, 0, -0.499189168, 0, 1, 0, 0.499189168, 0, 0.866493046))
             elseif _G.SelectNPC == "Chemist" then
                 topos( CFrame.new(-2777.45288, 72.9919434, -3572.25732, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Ghoul Mark" then
-                topos(CFrame.new(635.172546, 125.976357, 33219.832, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+                Tween2(CFrame.new(635.172546, 125.976357, 33219.832, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Cyborg" then
-                topos(CFrame.new(629.146851, 312.307373, -531.624146, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+                Tween2(CFrame.new(629.146851, 312.307373, -531.624146, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Guashiem" then
-                topos(CFrame.new(937.953003, 181.083359, 33277.9297, 1, -8.60126406e-08, 3.81773896e-17, 8.60126406e-08, 1, -1.89969598e-16, -3.8177373e-17, 1.89969598e-16, 1))
+                Tween2(CFrame.new(937.953003, 181.083359, 33277.9297, 1, -8.60126406e-08, 3.81773896e-17, 8.60126406e-08, 1, -1.89969598e-16, -3.8177373e-17, 1.89969598e-16, 1))
             elseif _G.SelectNPC == "El Admin" then
-                topos(CFrame.new(1322.80835, 126.345039, 33135.8789, 0.988783717, -8.69797603e-08, -0.149354503, 8.62223786e-08, 1, -1.15461916e-08, 0.149354503, -1.46101409e-09, 0.988783717))
+                Tween2(CFrame.new(1322.80835, 126.345039, 33135.8789, 0.988783717, -8.69797603e-08, -0.149354503, 8.62223786e-08, 1, -1.15461916e-08, 0.149354503, -1.46101409e-09, 0.988783717))
             elseif _G.SelectNPC == "El Rodolfo" then
-                topos(CFrame.new(941.228699, 40.4686775, 32778.9922, -0.818029106, -1.19524382e-08, 0.575176775, -1.28741648e-08, 1, 2.47053866e-09, -0.575176775, -5.38394795e-09, -0.818029106))
+                Tween2(CFrame.new(941.228699, 40.4686775, 32778.9922, -0.818029106, -1.19524382e-08, 0.575176775, -1.28741648e-08, 1, 2.47053866e-09, -0.575176775, -5.38394795e-09, -0.818029106))
             elseif _G.SelectNPC == "Arowe" then
-                topos(CFrame.new(-1994.51038, 125.519142, -72.2622986, -0.16715166, -6.55417338e-08, -0.985931218, -7.13315558e-08, 1, -5.43836585e-08, 0.985931218, 6.12376851e-08, -0.16715166))
+                Tween2(CFrame.new(-1994.51038, 125.519142, -72.2622986, -0.16715166, -6.55417338e-08, -0.985931218, -7.13315558e-08, 1, -5.43836585e-08, 0.985931218, 6.12376851e-08, -0.16715166))
             elseif _G.SelectNPC == "Random Devil Fruit" then
-                topos(CFrame.new(-1436.19727, 61.8777695, 4.75247526, -0.557794094, 2.74216543e-08, 0.829979479, 5.83273234e-08, 1, 6.16037932e-09, -0.829979479, 5.18467118e-08, -0.557794094))
+                Tween2(CFrame.new(-1436.19727, 61.8777695, 4.75247526, -0.557794094, 2.74216543e-08, 0.829979479, 5.83273234e-08, 1, 6.16037932e-09, -0.829979479, 5.18467118e-08, -0.557794094))
             elseif _G.SelectNPC == "Blox Fruits Dealer" then
-                topos(CFrame.new(-923.255066, 7.67800522, 1608.61011, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+                Tween2(CFrame.new(-923.255066, 7.67800522, 1608.61011, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Remove Devil Fruit" then
-                topos(CFrame.new(5664.80469, 64.677681, 867.85907, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+                Tween2(CFrame.new(5664.80469, 64.677681, 867.85907, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Ability Teacher" then
-                topos(CFrame.new(-1057.67822, 9.65220833, 1799.49146, -0.865874112, -9.26330159e-08, 0.500262439, -7.33759435e-08, 1, 5.816689e-08, -0.500262439, 1.36579752e-08, -0.865874112))
+                Tween2(CFrame.new(-1057.67822, 9.65220833, 1799.49146, -0.865874112, -9.26330159e-08, 0.500262439, -7.33759435e-08, 1, 5.816689e-08, -0.500262439, 1.36579752e-08, -0.865874112))
             elseif _G.SelectNPC == "Dark Step" then
                 topos( CFrame.new(-987.873047, 13.7778397, 3989.4978, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Electro" then
-                topos(CFrame.new(-5389.49561, 13.283, -2149.80151, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+                Tween2(CFrame.new(-5389.49561, 13.283, -2149.80151, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Fishman Karate" then
                 topos( CFrame.new(61581.8047, 18.8965912, 987.832703, 1, 0, 0, 0, 1, 0, 0, 0, 1))
             elseif _G.SelectNPC == "Random Devil Fruit" then
-                topos(CFrame.new(-12491, 337, -7449))
+                Tween2(CFrame.new(-12491, 337, -7449))
             elseif _G.SelectNPC == "Blox Fruits Dealer" then
-                topos(CFrame.new(-12511, 337, -7448))
+                Tween2(CFrame.new(-12511, 337, -7448))
             elseif _G.SelectNPC == "Remove Devil Fruit" then
-                topos(CFrame.new(-5571, 1089, -2661))
+                Tween2(CFrame.new(-5571, 1089, -2661))
             elseif _G.SelectNPC == "Horned Man" then
-                topos(CFrame.new(-11890, 931, -8760))
+                Tween2(CFrame.new(-11890, 931, -8760))
             elseif _G.SelectNPC == "Hungey Man" then
-                topos(CFrame.new(-10919, 624, -10268))
+                Tween2(CFrame.new(-10919, 624, -10268))
             elseif _G.SelectNPC == "Previous Hero" then
-                topos(CFrame.new(-10368, 332, -10128))
+                Tween2(CFrame.new(-10368, 332, -10128))
             elseif _G.SelectNPC == "Butler" then
-                topos(CFrame.new(-5125, 316, -3130))
+                Tween2(CFrame.new(-5125, 316, -3130))
             elseif _G.SelectNPC == "Lunoven" then
-                topos(CFrame.new(-5117, 316, -3093))
+                Tween2(CFrame.new(-5117, 316, -3093))
             elseif _G.SelectNPC == "Elite Hunter" then
-                topos(CFrame.new(-5420, 314, -2828))
+                Tween2(CFrame.new(-5420, 314, -2828))
             elseif _G.SelectNPC == "Player Hunter" then
-                topos(CFrame.new(-5559, 314, -2840))
+                Tween2(CFrame.new(-5559, 314, -2840))
             elseif _G.SelectNPC == "Uzoth" then
-                topos(CFrame.new(-9785, 852, 6667))
+                Tween2(CFrame.new(-9785, 852, 6667))
             end
            end
          })
     
+    Tabs.Teleport:AddButton({
+    Title = "Dừng bay",
+    Description = "",
+    Callback = function()
+        toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+    end
+})
+
 Tabs.Visual:AddButton({
     Title="Giả",
     Description="",
@@ -7869,6 +7878,46 @@ TogglePermanentFruit:OnChanged(function(Value)
     end
 end)
 Options.TogglePermanentFruit:SetValue(false)
+
+local ToggleDropFruit = Tabs.Fruit:AddToggle("ToggleDropFruit", {Title = "Tự Động Thả Trái", Default = false })
+ToggleDropFruit:OnChanged(function(Value)
+    _G.AutoDropFruit = Value
+end)
+Options.ToggleDropFruit:SetValue(false)
+
+spawn(function()
+    while wait() do
+        if _G.AutoDropFruit then
+            pcall(function()
+                for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+                    if string.find(v.Name, "Fruit") then
+                        EquipTool(v.Name)
+                        SelectFruit = v.Name
+                        wait(.1)
+                        if game:GetService("Players").LocalPlayer.PlayerGui.Main.Dialogue.Visible == true then
+                            game:GetService("Players").LocalPlayer.PlayerGui.Main.Dialogue.Visible = false
+                        end
+                        EquipTool(v.Name)
+                        game:GetService("Players").LocalPlayer.Character:FindFirstChild(SelectFruit).EatRemote:InvokeServer("Drop")
+                    end
+                end
+				for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
+                    if string.find(v.Name, "Fruit") then
+                        EquipTool(v.Name)
+                        SelectFruit = v.Name
+                        wait(.1)
+                        if game:GetService("Players").LocalPlayer.PlayerGui.Main.Dialogue.Visible == true then
+                            game:GetService("Players").LocalPlayer.PlayerGui.Main.Dialogue.Visible = false
+                        end
+                        EquipTool(v.Name)
+                        game:GetService("Players").LocalPlayer.Character:FindFirstChild(SelectFruit).EatRemote:InvokeServer("Drop")
+                    end
+                end
+            end)
+        end
+    end
+end)
+
 local ToggleStore = Tabs.Fruit:AddToggle("ToggleStore", {Title="Lưu Trái",Description="", Default=false })
 ToggleStore:OnChanged(function(Value)
     _G.AutoStoreFruit=Value
