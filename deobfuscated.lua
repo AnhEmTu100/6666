@@ -2628,7 +2628,7 @@ spawn(function()
                 local CFrameTarget = CFrame.new(BushPosition)
                 Tween2(CFrameTarget)
                 Fluent:Notify({
-                    Title = "Strix",
+                    Title = "Đang Đến ...",
                     Content = "Tìm Thấy Berry: " .. tostring(BerryName),
                     Duration = 10
                 })
@@ -7418,7 +7418,7 @@ Tabs.Teleport:AddButton({
         Title = "Dừng bay",
         Description = "",
         Callback = function()
-           toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+           Tween2(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
         end
     })
     
@@ -7571,7 +7571,7 @@ Tabs.Teleport:AddButton({
     Title = "Dừng bay",
     Description = "",
     Callback = function()
-        toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+        Tween2(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
     end
 })
 
