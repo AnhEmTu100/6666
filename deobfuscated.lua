@@ -1,49 +1,58 @@
 
 local id = game.PlaceId
-if id==2753915549 then Sea1=true; elseif id==4442272183 then Sea2=true; elseif id==7449423635 then Sea3=true; else game:Shutdown() end;
-game:GetService("Players").LocalPlayer.Idled:connect(function()
-    game:GetService("VirtualUser"):Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-    wait()
-    game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-end)
-Sea1=false
-Sea2=false
-Sea3=false
-local placeId = game.PlaceId
-if placeId==2753915549 then
-Sea1=true
-elseif placeId==4442272183 then
-Sea2=true
-elseif placeId==7449423635 then
-Sea3=true
+local Sea1, Sea2, Sea3 = false, false, false
+
+if id == 2753915549 then
+    Sea1 = true
+elseif id == 4442272183 then
+    Sea2 = true
+elseif id == 7449423635 then
+    Sea3 = true
+else
+    game:Shutdown()
 end
+
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+    game:GetService("VirtualUser"):Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+    wait()
+    game:GetService("VirtualUser"):Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+end)
+
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/r2lx-hub/Fluxus-R2LX/refs/heads/main/fluent-mod-wibu-final%20.lua"))()
 local Window = Fluent:CreateWindow({
-    Title="R2LX HUB-BloxFruit",
-    SubTitle="By Enc Skibidi", 
-    TabWidth=160, 
-    Theme="R2LX",
-    Acrylic=false,
-    Size=UDim2.fromOffset(530, 350), 
-    MinimizeKey=Enum.KeyCode.End
+    Title = "R2LX HUB - BloxFruit",
+    SubTitle = "By Enc Skibidi",
+    TabWidth = 160,
+    Theme = "R2LX",
+    Acrylic = false,
+    Size = UDim2.fromOffset(530, 350),
+    MinimizeKey = Enum.KeyCode.End
 })
-local Tabs = {
-    Info=Window:AddTab({ Title="Thông Tin" }),
-    Main=Window:AddTab({ Title="Cày" }),
-    Sea=Window:AddTab({ Title="Sự Kiện" }),
-    Item=Window:AddTab({ Title="Vật Phẩm" }),
-    Setting=Window:AddTab({ Title="Cài Đặt" }),
-    Status=Window:AddTab({ Title="Máy Chủ" }),
-    Stats=Window:AddTab({ Title="Chỉ Số" }),
-    Player=Window:AddTab({ Title="Người Chơi" }),
-    Teleport=Window:AddTab({ Title="Dịch Chuyển" }),
-    Visual=Window:AddTab({ Title="Giả" }),
-    Fruit=Window:AddTab({ Title="Trái" }),
-    Raid=Window:AddTab({ Title="Tập Kích" }),
-    Race=Window:AddTab({ Title="Tộc" }),
-    Shop=Window:AddTab({ Title="Cửa Hàng" }),
-    Misc=Window:AddTab({ Title="Khác" }),
-}
+
+local Tabs = {}
+
+-- **Hiển thị Tab theo từng Sea**
+if Sea1 or Sea2 then
+    Tabs.Info = Window:AddTab({ Title = "Thông Tin" })
+    Tabs.Main = Window:AddTab({ Title = "Cày" })
+    Tabs.Sea = Window:AddTab({ Title = "Sự Kiện" })
+    Tabs.Item = Window:AddTab({ Title = "Vật Phẩm" })
+    Tabs.Setting = Window:AddTab({ Title = "Cài Đặt" })
+    Tabs.Status = Window:AddTab({ Title = "Máy Chủ" })
+    Tabs.Stats = Window:AddTab({ Title = "Chỉ Số" })
+    Tabs.Player = Window:AddTab({ Title = "Người Chơi" })
+    Tabs.Teleport = Window:AddTab({ Title = "Dịch Chuyển" })
+    Tabs.Visual = Window:AddTab({ Title = "Giả" })
+    Tabs.Fruit = Window:AddTab({ Title = "Trái" })
+    Tabs.Raid = Window:AddTab({ Title = "Tập Kích" })
+    elseif Sea3 then
+    Tabs.Race = Window:AddTab({ Title = "Tộc" })
+    elseif Sea1 or Sea2 then
+    Tabs.Shop = Window:AddTab({ Title = "Cửa Hàng" })
+    Tabs.Misc = Window:AddTab({ Title = "Khác" })
+end
+
+
 local Options = Fluent.Options
 function CheckLevel()
 local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
@@ -2601,9 +2610,11 @@ local ToggleCollectBerry = Tabs.Main:AddToggle("ToggleCollectBerry", {
     Description = "",
     Default = false
 })
+
 ToggleCollectBerry:OnChanged(function(Value)
     _G.AutoCollectBerry = Value
 end)
+
 spawn(function()
     while wait() do
         if _G.AutoCollectBerry then
@@ -2613,25 +2624,43 @@ spawn(function()
             local Position = Character:GetPivot().Position
             local CollectionService = game:GetService("CollectionService")
             local BerryBushes = CollectionService:GetTagged("BerryBush")
+
             local Distance, Nearest, BerryName = math.huge, nil, nil
-            for i = 1, #BerryBushes do
-                local Bush = BerryBushes[i]
+            for _, Bush in pairs(BerryBushes) do
                 for AttributeName, Berry in pairs(Bush:GetAttributes()) do
-                    local Magnitude = (Bush.Parent:GetPivot().Position - Position).Magnitude
+                    local BushPosition = Bush:GetPivot().Position
+                    local Magnitude = (BushPosition - Position).Magnitude
                     if Magnitude < Distance then
                         Distance, Nearest, BerryName = Magnitude, Bush, Berry
                     end
                 end
             end
+
             if Nearest then
-                local BushPosition = Nearest.Parent:GetPivot().Position
-                local CFrameTarget = CFrame.new(BushPosition)
-                Tween2(CFrameTarget)
-                Fluent:Notify({
-                    Title = "Đang Đến ...",
-                    Content = "Tìm Thấy Berry: " .. tostring(BerryName),
-                    Duration = 10
-                })
+                local BushPosition = Nearest:GetPivot().Position
+                if Distance > 5 then
+                    Tween2(CFrame.new(BushPosition))
+                    Fluent:Notify({
+                        Title = "Đang Đến ...",
+                        Content = "Tìm Thấy Berry: " .. tostring(BerryName),
+                        Duration = 5
+                    })
+                    wait(1) -- Chờ teleport hoàn tất
+                end
+
+                -- **Tự động nhặt Berry**
+                local ProximityPrompt = Nearest:FindFirstChildOfClass("ProximityPrompt")
+                if ProximityPrompt then
+                    for i = 1, 3 do -- Ấn nhiều lần để đảm bảo nhặt được
+                        fireproximityprompt(ProximityPrompt, 0) -- Nhấn nhanh
+                        wait(0.1)
+                    end
+                    Fluent:Notify({
+                        Title = "Nhặt Thành Công!",
+                        Content = "Đã nhặt: " .. tostring(BerryName),
+                        Duration = 3
+                    })
+                end
             else
                 Hop()
             end
