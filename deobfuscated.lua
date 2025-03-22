@@ -2596,6 +2596,72 @@ spawn(function()
         end
     end
 end)
+local ToggleChestBypas = Tabs.Main:AddToggle("ToggleChestBypas", {
+    Title = "Lụm Rương Bypass",
+    Description = "",
+    Default = false
+})
+ToggleChestBypas:OnChanged(function(Value)
+	_G.ChestBypass = Value
+end)
+
+spawn(function()
+    while wait() do
+        if _G.ChestBypass then
+            local Players = game:GetService("Players")
+            local Player = Players.LocalPlayer
+            local CollectionService = game:GetService("CollectionService")
+            local Character = Player.Character or Player.CharacterAdded:Wait()
+            local StartTime = tick()
+            while tick() - StartTime < 4 do
+                Character = Player.Character or Player.CharacterAdded:Wait()
+                local Position = Character:GetPivot().Position
+                local Chests = CollectionService:GetTagged("_ChestTagged")
+                local Distance, Nearest = math.huge
+                for i = 1, #Chests do
+                    local Chest = Chests[i]
+                    local Magnitude = (Chest:GetPivot().Position - Position).Magnitude
+                    if (not Chest:GetAttribute("IsDisabled") and (Magnitude < Distance)) then
+                        Distance, Nearest = Magnitude, Chest
+                    end
+                end
+                if Nearest then
+                    local ChestPosition = Nearest:GetPivot().Position
+                    Character:PivotTo(CFrame.new(ChestPosition))
+                    task.wait(0.2)
+                else
+                    break
+                end
+            end
+            if Player.Character then
+                Player.Character:BreakJoints()
+                Player.CharacterAdded:Wait()
+            end
+        end
+    end
+end)
+
+local ToggleChestItems = Tabs.Main:AddToggle("ToggleChestItems", {
+    Title = "Tự Động Dừng Khi Có Item",
+    Description = "",
+    Default = false
+})
+ToggleChestItems:OnChanged(function(Value)
+	_G.StopItemsChest = Value
+end)
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.StopItemsChest then
+                if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("God's Chalice") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Fist of Darkness") then
+                    _G.ChestBypass = false
+                    topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+                end
+            end
+        end)
+    end
+end)
 local ToggleCollectBerry = Tabs.Main:AddToggle("ToggleCollectBerry", {
     Title = "Bay Đến Khu Vực Có Berry+Hop",
     Description = "",
@@ -6473,6 +6539,31 @@ spawn(function()
         end)
     end
 end)
+
+
+    local ToggleBypassTP = Tabs.Setting:AddToggle("ToggleBypassTP", {Title = "Di Chuyển Dạng Reset",Description = "", Default = false })
+    ToggleBypassTP:OnChanged(function(Value)
+        BypassTP = Value
+    end)
+    Options.ToggleBypassTP:SetValue(false)
+
+
+local ToggleRemove = Tabs.Setting:AddToggle("ToggleRemove", {Title = "Ẩn Dame Đánh Quái",Description = "", Default = true })
+ToggleRemove:OnChanged(function(Value)
+    _G.RemoveDameText = Value
+    end)
+    Options.ToggleRemove:SetValue(true)
+
+    spawn(function()
+        while wait() do
+            if _G.RemoveDameText then
+                game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
+            else
+                game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = true
+            end
+        end
+        end)
+        
 local ToggleRemoveNotify = Tabs.Setting:AddToggle("ToggleRemoveNotify", {Title="Xóa Thông Báo",Description="", Default=false })
 ToggleRemoveNotify:OnChanged(function(Value)
     RemoveNotify=Value
@@ -8599,6 +8690,20 @@ ToggleUpgrade:OnChanged(function(Value)
     end
 end)
 Options.ToggleUpgrade:SetValue(false)
+
+local Mastery = Tabs.Shop:AddSection("Mua Full")
+
+Tabs.Shop:AddButton({
+    Title="Mua Items",
+    Description="",
+    Callback=function()
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk", "Buy")
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki", "Geppo")
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki", "Buso")
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki", "Soru")
+    end
+})
+
 local Mastery = Tabs.Shop:AddSection("Khả Năng")
 Tabs.Shop:AddButton({
     Title="Geppo",
