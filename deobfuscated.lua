@@ -2326,7 +2326,7 @@ spawn(function()
         if _G.FastAttackStrix_Mode then
             pcall(function()
                 if _G.FastAttackStrix_Mode=="Super Fast Attack" then
-                    _G.Fast_Delay=0.1 
+                    _G.Fast_Delay=1e-2 and 0.1 
                 end
             end)
         end
