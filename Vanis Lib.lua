@@ -126,10 +126,11 @@ local Fix = Tab:CreateFrame("Khắc phục độ trễ | Fix Lag")
 
 
 -- Mục Thông tin 
-Tab:CreateLabel("Code : R2LX HUB 🤓")
-Tab:CreateLabel("Trạng thái : Còn Update thêm 🟠")
-Tab:CreateLabel("Phiên bản Ui và Code : 1.1")
-Tab:CreateButton({
+Label = Tab:CreateLabel("Tii")
+Label:UpdateLabel("Code : R2LX HUB 🤓")
+Label:UpdateLabel("Trạng thái : Còn Update thêm 🟠")
+Label:UpdateLabel("Phiên bản Ui và Code : 1.1")
+Button = Fix:CreateButton({
     Name = "Link mời Discord"
     Callback = function(value)
         setclipboard(" ")
@@ -145,7 +146,7 @@ Label:UpdateLabel("New Title")
 
 -- Function
 Label = Function:CreateLabel("Label")
-Label:UpdateLabel("New Title")
+Label:UpdateLabel(" Title")
 
 -- Chức năng
 Button = Function:CreateButton("ON SCRIPT R2LX HUB", "DESCRIPTION", function()
@@ -162,7 +163,7 @@ end)
 
 -- Fixx Lag ( Fix )
 Label = Fix:CreateLabel("Label")
-Label:UpdateLabel("New Title")
+Label:UpdateLabel("New")
 
 -- Chức Năng ( Futtion )
 Button = Fix:CreateButton("FIX LAG", "DESCRIPTION", function()
@@ -181,7 +182,7 @@ Button = Fix:CreateButton("FIX LAG", "DESCRIPTION", function()
 end)
 
 -- Chức năng Không Mất Máu Khi Xuống Lava (Sửa lỗi lag thanh máu)
-Fix:CreateButton("MIỄN NHIỄM LAVA", "Không mất máu khi đứng trên lava", function()
+Button = Fix:CreateButton("MIỄN NHIỄM LAVA", "Không mất máu khi đứng trên lava", function()
     spawn(function()
         while wait(0.1) do
             local char = game.Players.LocalPlayer.Character
