@@ -134,7 +134,7 @@ Button = Fix:CreateButton({
     Name = "Link mời Discord"
     Callback = function(value)
         setclipboard(" ")
-        Notif.New("Đã sao chép link Discord!", 5)
+        createNotification("Đã sao chép link Discord!", 5)
     end
 })
 -- Ví dụ cách sử dụng 
