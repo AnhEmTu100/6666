@@ -1,4 +1,14 @@
 
+repeat wait() until game.Players
+repeat wait() until game.Players.LocalPlayer
+repeat wait() until game.ReplicatedStorage
+repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
+repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
+repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+repeat wait() until game:GetService("Players")
+repeat wait() until game:GetService("Players").LocalPlayer.Character:FindFirstChild("Energy")
+if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
+
 local id = game.PlaceId
 if id==2753915549 then Sea1=true; elseif id==4442272183 then Sea2=true; elseif id==7449423635 then Sea3=true; else game:Shutdown() end;
 game:GetService("Players").LocalPlayer.Idled:connect(function()
@@ -17,6 +27,50 @@ Sea2=true
 elseif placeId==7449423635 then
 Sea3=true
 end
+local Plr = game.Players.LocalPlayer
+local Connection = {}
+local Highlight_Folder = Instance.new("Folder")
+Highlight_Folder.Name = "Highlight_Folder"
+Highlight_Folder.Parent = game.CoreGui
+local Highlight = function(Target)
+    local Highlight = Instance.new("Highlight")
+    Highlight.Name = Target.Name
+    Highlight.FillColor = Color3.fromRGB(255, 255, 0)
+    Highlight.DepthMode = "AlwaysOnTop"
+    Highlight.FillTransparency = 0.7
+    Highlight.OutlineColor = Color3.fromRGB(255, 255, 0)
+    Highlight.Parent = Highlight_Folder
+    if Target.Character then
+        Highlight.Adornee = Target.Character
+    end
+    Connection[Target] = Target.CharacterAdded:Connect(function(Characters)
+        Highlight.Adornee = Characters
+    end)
+end
+game.Players.PlayerAdded:Connect(Highlight)
+for i, v in next, game.Players:GetPlayers() do
+    Highlight(v)
+end
+game.Players.PlayerRemoving:Connect(function(PlayerRemove)
+    if Highlight_Folder[PlayerRemove.Name] then
+        Highlight_Folder[PlayerRemove.Name]:Destory()
+    end
+    if Connection[PlayerRemove.Name] then
+        Connection[PlayerRemove.Name]:Disconnect()
+    end
+end)
+
+local InputService = game:GetService("UserInputService")
+InputService.WindowFocused:Connect(
+    function()
+        game:GetService("RunService"):Set3dRenderingEnabled(true)
+    end
+)
+InputService.WindowFocusReleased:Connect(
+    function()
+        game:GetService("RunService"):Set3dRenderingEnabled(false)
+    end
+)
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/r2lx-hub/Fluxus-R2LX/refs/heads/main/fluent-mod-wibu-final%20.lua"))()
 local Window = Fluent:CreateWindow({
     Title="R2LX HUB-BloxFruit",
@@ -3432,104 +3486,96 @@ spawn(function()
     end)
 end)
 local ToggleBone = Tabs.Main:AddToggle("ToggleBone", {
-    Title = "Cày Xương",
-    Description = "", 
-    Default = false 
-})
-
+    Title="Cày Xương",
+    Description="", 
+    Default=false })
 ToggleBone:OnChanged(function(Value)
-    _G.AutoBone = Value
-    if not Value then
+    _G.AutoBone=Value
+    if Value==false then
         wait()
         Tween(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
         wait()
     end
 end)
-
 Options.ToggleBone:SetValue(false)
 local BoneCFrame = CFrame.new(-9517.65, 174.85, 6113.25)
-
 spawn(function()
     while wait() do
         if _G.AutoBone then
             pcall(function()
                 local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
-                
-                -- Hủy nhiệm vụ nếu không phải "Posessed Mummy"
-                if not string.find(QuestTitle, "Posessed Mummy") then
+                if not string.find(QuestTitle, "Demonic Soul") then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                    wait(1) -- Tránh spam request quá nhanh
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", "HauntedQuest2", 2) -- Đổi ID nếu cần
                 end
-
-                if not game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible then
-                    Tween(BoneCFrame)
-                    if (BoneCFrame.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1000000000 then    
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", "HauntedQuest2", 2)
+                if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible==false then
+                 Tween(BoneCFrame)
+                if (BoneCFrame.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then    
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest","HauntedQuest2",1)
                     end
-                elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible then
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") then
-                        for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                                if v.Name == "Posessed Mummy" then
-                                    repeat wait(_G.Fast_Delay)
-                                        AttackNoCoolDown()
-                                        AutoHaki()
-                                        bringmob = true
-                                        EquipTool(SelectWeapon)
-                                        Tween(v.HumanoidRootPart.CFrame * Pos)
-                                        v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-                                        v.HumanoidRootPart.Transparency = 1
-                                        v.Humanoid.JumpPower = 0
-                                        v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.CanCollide = false
-                                        FarmPos = v.HumanoidRootPart.CFrame
-                                        MonFarm = v.Name
-                                    until not _G.AutoBone or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
-                                elseif v.Name == "Demonic Soul" then
-                                    -- Nếu lỡ nhận nhiệm vụ sai, hủy và nhận lại
-                                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                                    wait(1)
-                                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", "HauntedQuest2", 2)
-                                    bringmob = false
+                elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible==true then
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") and game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") then
+                    
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health>0 then
+                                if v.Name=="Demonic Soul" and v.Name=="Posessed Mummy" or v.Name=="Demonic Soul" or v.Name=="Posessed Mummy" then
+                                
+                                    if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Demonic Soul") then
+                                        repeat wait(_G.Fast_Delay)
+                                            AttackNoCoolDown()
+                                            AutoHaki()
+                                            bringmob=true
+                                            EquipTool(SelectWeapon)
+                                            Tween(v.HumanoidRootPart.CFrame*Pos)
+                                            v.HumanoidRootPart.Size=Vector3.new(60, 60, 60)
+                                            v.HumanoidRootPart.Transparency=1
+                                            v.Humanoid.JumpPower=0
+                                            v.Humanoid.WalkSpeed=0
+                                            v.HumanoidRootPart.CanCollide=false
+                                            FarmPos=v.HumanoidRootPart.CFrame
+                                            MonFarm=v.Name
+                                        until not _G.AutoBone or v.Humanoid.Health<=0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible==false
+                                    else
+                                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                                        bringmob=false
+                                    end
                                 end
                             end
                         end
+                    else
                     end
                 end
             end)
         end
     end
 end)
-
-local BoneNoQuest = CFrame.new(-9515.75, 174.852, 6079.406)
-
+local BoneNoQuest = CFrame.new(-9515.75, 174.8521728515625, 6079.40625)
 spawn(function()
     while wait() do
         if _G.AutoBoneNoQuest then
             pcall(function()
                 Tween(BoneNoQuest)
-                if (BoneNoQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1000000000 then
+                if (BoneNoQuest.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                 end
-
-                if game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") then
-                    for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                        if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                            if v.Name == "Posessed Mummy" then
+                if game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") and game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") then
+                
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health>0 then
+                            if v.Name=="Demonic Soul" and v.Name=="Posessed Mummy" or v.Name=="Demonic Soul" or v.Name=="Posessed Mummy" then
+                            
                                 repeat wait(_G.Fast_Delay)
                                     AttackNoCoolDown()
                                     AutoHaki()
-                                    bringmob = true
+                                    bringmob=true
                                     EquipTool(SelectWeapon)
-                                    Tween(v.HumanoidRootPart.CFrame * Pos)
-                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-                                    v.HumanoidRootPart.Transparency = 1
-                                    v.Humanoid.JumpPower = 0
-                                    v.Humanoid.WalkSpeed = 0
-                                    v.HumanoidRootPart.CanCollide = false
-                                    FarmPos = v.HumanoidRootPart.CFrame
-                                    MonFarm = v.Name
-                                until not _G.AutoBoneNoQuest or v.Humanoid.Health <= 0 or not v.Parent
+                                    Tween(v.HumanoidRootPart.CFrame*Pos)
+                                    v.HumanoidRootPart.Size=Vector3.new(60, 60, 60)
+                                    v.HumanoidRootPart.Transparency=1
+                                    v.Humanoid.JumpPower=0
+                                    v.Humanoid.WalkSpeed=0
+                                    v.HumanoidRootPart.CanCollide=false
+                                    FarmPos=v.HumanoidRootPart.CFrame
+                                    MonFarm=v.Name
+                                until not _G.AutoBoneNoQuest or v.Humanoid.Health<=0 or not v.Parent
                             end
                         end
                     end
