@@ -2432,7 +2432,7 @@ spawn(function()
         if _G.FastAttackStrix_Mode then
             pcall(function()
                 if _G.FastAttackStrix_Mode=="Super Fast Attack" then
-                    _G.Fast_Delay=1e-2 and 0.1 
+                    _G.Fast_Delay=1e-9 or 0.1 
                 end
             end)
         end
@@ -7184,6 +7184,106 @@ spawn(function()
         end
     end
 end)
+
+local ToggleAim = Tabs.Player:AddToggle("ToggleAim", {Title="Aimbot Skill", Description="",Default=false })
+ToggleAim:OnChanged(function(Value)
+    ToggleAim = Value
+end)
+
+spawn(function()
+    local gg = getrawmetatable(game)
+    local old = gg.__namecall
+    setreadonly(gg,false)
+    gg.__namecall = newcclosure(function(...)
+        local method = getnamecallmethod()
+        local args = {...}
+        if tostring(method) == "FireServer" then
+            if tostring(args[1]) == "RemoteEvent" then
+                if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
+                    if ToggleAim then
+                        if type(args[2]) == "vector" then
+                            args[2] = Player_Position
+                        else
+                            args[2] = CFrame.new(Player_Position)
+                        end
+                        return old(unpack(args))
+                    end
+                end
+            end
+        end
+        return old(...)
+    end)
+end)
+
+spawn(function()
+    while task.wait() do
+        if ToggleAim then 
+            pcall(function()
+                for i,v in pairs(game.Players:GetChildren()) do
+                    if v.Name == Player_Name and v.Character:FindFirstChild("Humanoid") and v.Character:FindFirstChild("HumanoidRootPart") and v.Character.Humanoid.Health > 0 then
+                        Player_Position = v.Character.HumanoidRootPart.Position
+                        repeat game:GetService("RunService").Heartbeat:wait()
+                            if game:GetService("Players").LocalPlayer.Character:FindFirstChild(SelectWeapon) then
+                                game:GetService("Players").LocalPlayer.Character:FindFirstChild(SelectWeapon).MousePos.Value = Player_Position
+                                if PvpSkillZ then
+                                    game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+                                    wait(.1)
+                                    game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+                                end
+                                if PvpSkillX then
+                                    game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+                                    wait(.1)
+                                    game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+                                end
+                                if PvpSkillC then
+                                    game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+                                    wait(.1)
+                                    game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+                                end
+                                if PvpSkillV then
+                                    game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
+                                    wait(.1)
+                                    game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
+                                end
+                            end
+                        until not ToggleAim or v.Character.Humanoid.Health == 0 or not game.Players:FindFirstChild(v.Name)
+                    end
+                end
+            end)
+        end
+    end
+end)
+
+----------------------------------------------------//----------------------------------------------------
+--// PVP RIGHT
+
+local SKill_Pvl = Tabs.Setting:AddSection("#Skill Setting")
+
+local PvpSkillZ = Tabs.Player:AddToggle("PvpSkillZ", {Title="Kĩ Năng Z",Description="", Default=true })
+PvpSkillZ:OnChanged(function(Value)
+    PvpSkillZ=Value
+end)
+Options.PvpSkillZ:SetValue(true)
+
+local PvpSkillX = Tabs.Player:AddToggle("PvpSkillX", {Title="Kĩ Năng X",Description="", Default=true })
+PvpSkillX:OnChanged(function(Value)
+    PvpSkillX=Value
+end)
+Options.PvpSkillX:SetValue(true)
+
+local PvpSkillC = Tabs.Player:AddToggle("PvpSkillC", {Title="Kĩ Năng C",Description="", Default=true })
+PvpSkillC:OnChanged(function(Value)
+    PvpSkillC=Value
+end)
+Options.PvpSkillC:SetValue(true)
+
+local PvpSkillV = Tabs.Player:AddToggle("PvpSkillV", {Title="Kĩ Năng V",Description="", Default=true })
+PvpSkillV:OnChanged(function(Value)
+    PvpSkillV=Value
+end)
+Options.PvpSkillV:SetValue(true)
+
+---- aend
 local ToggleNoClip = Tabs.Player:AddToggle("ToggleNoClip", {Title = "Xuyên Tường", Description = "", Default = true })
 
 _G.LOf = true -- Mặc định bật khi chạy script
