@@ -7257,31 +7257,31 @@ end)
 ----------------------------------------------------//----------------------------------------------------
 --// PVP RIGHT
 
-local SKill_Pvl = Tabs.Setting:AddSection("#Skill Setting")
+local PvpSkill = Tabs.Setting:AddSection("#Skill Setting")
 
-local PvpSkillZ = Tabs.Player:AddToggle("PvpSkillZ", {Title="Kĩ Năng Z",Description="", Default=true })
-PvpSkillZ:OnChanged(function(Value)
+local SkillZ = Tabs.Player:AddToggle("SkillZ", {Title="Kĩ Năng Z",Description="", Default=true })
+SkillZ:OnChanged(function(Value)
     PvpSkillZ=Value
 end)
-Options.PvpSkillZ:SetValue(true)
+Options.SkillZ:SetValue(true)
 
-local PvpSkillX = Tabs.Player:AddToggle("PvpSkillX", {Title="Kĩ Năng X",Description="", Default=true })
-PvpSkillX:OnChanged(function(Value)
+local SkillX = Tabs.Player:AddToggle("SkillX", {Title="Kĩ Năng X",Description="", Default=true })
+SkillX:OnChanged(function(Value)
     PvpSkillX=Value
 end)
-Options.PvpSkillX:SetValue(true)
+Options.SkillX:SetValue(true)
 
-local PvpSkillC = Tabs.Player:AddToggle("PvpSkillC", {Title="Kĩ Năng C",Description="", Default=true })
-PvpSkillC:OnChanged(function(Value)
+local SkillC = Tabs.Player:AddToggle("SkillC", {Title="Kĩ Năng C",Description="", Default=true })
+SkillC:OnChanged(function(Value)
     PvpSkillC=Value
 end)
-Options.PvpSkillC:SetValue(true)
+Options.SkillC:SetValue(true)
 
-local PvpSkillV = Tabs.Player:AddToggle("PvpSkillV", {Title="Kĩ Năng V",Description="", Default=true })
-PvpSkillV:OnChanged(function(Value)
+local SkillV = Tabs.Player:AddToggle("SkillV", {Title="Kĩ Năng V",Description="", Default=true })
+SkillV:OnChanged(function(Value)
     PvpSkillV=Value
 end)
-Options.PvpSkillV:SetValue(true)
+Options.SkillV:SetValue(true)
 
 ---- aend
 local ToggleNoClip = Tabs.Player:AddToggle("ToggleNoClip", {Title = "Xuyên Tường", Description = "", Default = true })
