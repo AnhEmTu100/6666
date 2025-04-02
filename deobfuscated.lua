@@ -3582,11 +3582,11 @@ spawn(function()
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest","HauntedQuest2",1)
                     end
                 elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible==true then
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") and game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") then
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") then
                     
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                             if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health>0 then
-                                if v.Name=="Demonic Soul" and v.Name=="Posessed Mummy" or v.Name=="Demonic Soul" or v.Name=="Posessed Mummy" then
+                                if v.Name=="Demonic Soul" or v.Name=="Posessed Mummy" then
                                 
                                     if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Demonic Soul") then
                                         repeat wait(_G.Fast_Delay)
@@ -3626,11 +3626,11 @@ spawn(function()
                 Tween(BoneNoQuest)
                 if (BoneNoQuest.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<=1000000000 then
                 end
-                if game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") and game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") then
+                if game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy")  then
                 
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health>0 then
-                            if v.Name=="Demonic Soul" and v.Name=="Posessed Mummy" or v.Name=="Demonic Soul" or v.Name=="Posessed Mummy" then
+                            if v.Name=="Demonic Soul" or v.Name=="Posessed Mummy" then
                             
                                 repeat wait(_G.Fast_Delay)
                                     AttackNoCoolDown()
