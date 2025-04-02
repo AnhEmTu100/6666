@@ -146,7 +146,9 @@ elseif placeId==7449423635 then
 Sea3=true
 end
 
+function CheckLevel()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AnhEmTu100/6666/refs/heads/main/CheckLevel.lua"))()
+end
 
 if Sea1 then
 tableMon={
