@@ -1,6 +1,4 @@
 
-
-function CheckLevel()
         local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
     if Sea1 then
         if Lv >= 1 and Lv <= 9 then
@@ -631,4 +629,3 @@ function CheckLevel()
             CFrameMon = CFrame.new(-16855.043, 122.457253, 1478.15308, -0.999392271, 0, -0.0348687991, 0, 1, 0, 0.0348687991, 0, -0.999392271)
         end
     end
-end
