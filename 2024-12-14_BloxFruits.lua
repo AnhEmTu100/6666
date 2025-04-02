@@ -1589,6 +1589,7 @@ end
 function AttackNoCD()
     local plr = game:GetService("Players").LocalPlayer
     local GetFastAttack = debug.getupvalues(CombatFramework)[2]
+
     local activeController = GetFastAttack.activeController
     for i = 1, 1 do
         local getBladeHits = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(plr.Character,{plr.Character.HumanoidRootPart},60)
