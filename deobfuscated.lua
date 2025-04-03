@@ -2234,10 +2234,7 @@ function Hop()
     end
     
     function Click()
-    local CombatFramework = debug.getupvalues(Module)[2]
-        CombatFramework.activeController.attacking = false
-        CombatFramework.activeController.timeToNextAttack = 0
-        CombatFramework.activeController.hitboxMagnitude = 180
+    
         game:GetService'VirtualUser':CaptureController()
         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
     end
@@ -2245,7 +2242,7 @@ function Hop()
     function Click1()
         local VirtualUser = game:GetService('VirtualUser')
         VirtualUser:CaptureController()
-        VirtualUser:ClickButton1(Vector2.new(851, 158), game:GetService("Workspace").Camera.CFrame)
+        VirtualUser:Button1Down(Vector2.new(851, 158), game:GetService("Workspace").Camera.CFrame)
     end
 
     function AutoHaki()
