@@ -7275,10 +7275,7 @@ ToggleTeleport:OnChanged(function(Value)
     _G.TeleportPly=Value
     if Value==false then
         wait()
-        Click()
-Click1()
-Click2()
-AutoHaki()
+        AutoHaki()
         Tween2(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
         wait()
     end
@@ -9731,10 +9728,7 @@ local targets = {
 spawn(function()
     while wait() do
         if _G.AutoHydraTree then
-            Click()
-Click1()
-Click2()
-AutoHaki()  
+            AutoHaki()  
             for _, target in ipairs(targets) do
                 if not _G.AutoHydraTree then break end 
                 Tween2(target) 
@@ -10022,10 +10016,7 @@ end
 spawn(function()
     while wait() do
         if _G.AutoDefendVolcano then
-            Click()
-Click1()
-Click2()
-AutoHaki() 
+            AutoHaki() 
             pcall(removeLava) 
             local currentTarget = findValidRock() 
             if currentTarget then
