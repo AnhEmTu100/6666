@@ -2234,13 +2234,27 @@ function Hop()
     end
     
     function Click()
-    local CombatFramework = debug.getupvalues(Module)[2]
+    if not _G.FastAttack then
+        local Module = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework)
+        local CombatFramework = debug.getupvalues(Module)[2]
+        local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
+        CamShake:Stop()
         CombatFramework.activeController.attacking = false
         CombatFramework.activeController.timeToNextAttack = 0
         CombatFramework.activeController.hitboxMagnitude = 180
         game:GetService'VirtualUser':CaptureController()
         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
     end
+end
+
+  --[[  function Click()
+    local CombatFramework = debug.getupvalues(Module)[2]
+        CombatFramework.activeController.attacking = false
+        CombatFramework.activeController.timeToNextAttack = 0
+        CombatFramework.activeController.hitboxMagnitude = 180
+        game:GetService'VirtualUser':CaptureController()
+        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+    end]]
 
     function AutoHaki()
     if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
