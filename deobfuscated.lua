@@ -2249,7 +2249,6 @@ function Hop()
         local Module = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework)
         local CombatFramework = debug.getupvalues(Module)[2]
         local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
-        CamShake:Stop()
         CombatFramework.activeController.attacking = false
         CombatFramework.activeController.timeToNextAttack = 0
         CombatFramework.activeController.hitboxMagnitude = 180
