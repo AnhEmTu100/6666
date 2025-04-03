@@ -2238,6 +2238,26 @@ function Hop()
         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
     end
     
+    function Click1()
+        local VirtualUser = game:GetService('VirtualUser')
+        VirtualUser:CaptureController()
+        VirtualUser:ClickButton1(Vector2.new(851, 158), game:GetService("Workspace").Camera.CFrame)
+    end
+    
+    function Click2()
+    if not _G.FastAttack then
+        local Module = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework)
+        local CombatFramework = debug.getupvalues(Module)[2]
+        local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
+        CamShake:Stop()
+        CombatFramework.activeController.attacking = false
+        CombatFramework.activeController.timeToNextAttack = 0
+        CombatFramework.activeController.hitboxMagnitude = 180
+        game:GetService'VirtualUser':CaptureController()
+        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+    end
+end
+
     function AutoHaki()
     if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
@@ -2481,6 +2501,8 @@ task.spawn(function()
         end)
     end
 end)
+
+
     local ToggleLevel = Tabs.Main:AddToggle("ToggleLevel", {
         Title="Cày Cấp",
         Description="",
@@ -2511,10 +2533,11 @@ end)
           if v.Name==Ms then
           repeat wait(_G.Fast_Delay)
           AttackNoCoolDown()
-          bringmob=true
+                    bringmob=true
           Click()
-          Click()
-AutoHaki()
+          Click1()
+          Click2()
+          AutoHaki()
           EquipTool(SelectWeapon)
           Tween(v.HumanoidRootPart.CFrame*Pos)
           v.HumanoidRootPart.Size=Vector3.new(60, 60, 60)
@@ -2567,6 +2590,8 @@ AutoHaki()
                 bringmob=true
                 Click()
           Click()
+Click1()
+Click2()
 AutoHaki()
           EquipTool(SelectWeapon)
           Tween(v.HumanoidRootPart.CFrame*Pos)
@@ -2607,7 +2632,9 @@ AutoHaki()
                                     repeat wait(_G.Fast_Delay)
                                         AttackNoCoolDown()
                                         Click()
-AutoHaki()
+                                        Click1()
+                                        Click2()
+                                        AutoHaki()
                                         EquipTool(SelectWeapon)
                                         v.HumanoidRootPart.CanCollide=false
                                         v.HumanoidRootPart.Size=Vector3.new(60, 60, 60)
@@ -2921,6 +2948,8 @@ spawn(function()
                                 else
                                     _G.UseSkill = false
                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                     bringmob = true
                                     EquipTool(SelectWeapon)
@@ -2964,6 +2993,8 @@ spawn(function()
                             else
                                 _G.UseSkill = false
                                 Click()
+Click1()
+Click2()
 AutoHaki()
                                 bringmob = true
                                 EquipTool(SelectWeapon)
@@ -3013,6 +3044,8 @@ spawn(function()
                             else
                                 _G.UseSkill = false
                                 Click()
+Click1()
+Click2()
 AutoHaki()
                                 bringmob = true
                                 EquipTool(SelectWeapon)
@@ -3062,6 +3095,8 @@ spawn(function()
                             else
                                 _G.UseSkill = false
                                 Click()
+Click1()
+Click2()
 AutoHaki()
                                 bringmob = true
                                 EquipTool(SelectWeapon)
@@ -3108,6 +3143,8 @@ spawn(function()
                                     else
                                         _G.UseSkill = false
                                         Click()
+Click1()
+Click2()
 AutoHaki()
                                         bringmob = true
                                         EquipTool(SelectWeapon)
@@ -3148,6 +3185,8 @@ spawn(function()
                             else
                                 _G.UseSkill = false
                                 Click()
+Click1()
+Click2()
 AutoHaki()
                                 bringmob = true
                                 EquipTool(SelectWeapon)
@@ -3238,6 +3277,8 @@ spawn(function()
                                 else
                                     _G.UseSkillGun = false
                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                     bringmob = true
                                     EquipTool(SelectWeapon)
@@ -3281,6 +3322,8 @@ spawn(function()
                             else
                                 _G.UseSkillGun = false
                                 Click()
+Click1()
+Click2()
 AutoHaki()
                                 bringmob = true
                                 EquipTool(SelectWeapon)
@@ -3330,6 +3373,8 @@ spawn(function()
                             else
                                 _G.UseSkillGun = false
                                 Click()
+Click1()
+Click2()
 AutoHaki()
                                 bringmob = true
                                 EquipTool(SelectWeapon)
@@ -3387,6 +3432,8 @@ spawn(function()
                                     else
                                         _G.UseSkillGun = false
                                         Click()
+Click1()
+Click2()
 AutoHaki()
                                         bringmob = true
                                         EquipTool(SelectWeapon)
@@ -3427,6 +3474,8 @@ spawn(function()
                             else
                                 _G.UseSkillGun = false
                                 Click()
+Click1()
+Click2()
 AutoHaki()
                                 bringmob = true
                                 EquipTool(SelectWeapon)
@@ -3465,6 +3514,8 @@ spawn(function()
                             else
                                 _G.UseSkillGun = false
                                 Click()
+Click1()
+Click2()
 AutoHaki()
                                 bringmob = true
                                 EquipTool(SelectWeapon)
@@ -3592,6 +3643,8 @@ spawn(function()
                                         repeat wait(_G.Fast_Delay)
                                             AttackNoCoolDown()
                                             Click()
+Click1()
+Click2()
 AutoHaki()
                                             bringmob=true
                                             EquipTool(SelectWeapon)
@@ -3635,6 +3688,8 @@ spawn(function()
                                 repeat wait(_G.Fast_Delay)
                                     AttackNoCoolDown()
                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                     bringmob=true
                                     EquipTool(SelectWeapon)
@@ -3742,6 +3797,8 @@ spawn(function()
                                 repeat
                                     wait(_G.Fast_Delay)  
                                     Click()
+Click1()
+Click2()
 AutoHaki()  
                                     EquipTool(SelectWeapon)  
                                     v.HumanoidRootPart.CanCollide = false  
@@ -3762,6 +3819,8 @@ AutoHaki()
                                 repeat
                                     wait(_G.Fast_Delay)  
                                     Click()
+Click1()
+Click2()
 AutoHaki()  
                                     EquipTool(SelectWeapon)  
                                     bringmob = true  
@@ -3809,6 +3868,8 @@ spawn(function()
                                 repeat
                                     wait(_G.Fast_Delay)  
                                     Click()
+Click1()
+Click2()
 AutoHaki()  
                                     EquipTool(SelectWeapon)  
                                     v.HumanoidRootPart.CanCollide = false  
@@ -3829,6 +3890,8 @@ AutoHaki()
                                 repeat
                                     wait(_G.Fast_Delay)  
                                     Click()
+Click1()
+Click2()
 AutoHaki()  
                                     EquipTool(SelectWeapon)  
                                     bringmob = true  
@@ -3893,7 +3956,9 @@ end)
                                     repeat wait(_G.Fast_Delay)
                                         AttackNoCoolDown()
                                         Click()
-AutoHaki()
+                                        Click1()
+                                        Click2()
+                                        AutoHaki()
                                         bringmob=true
                                         EquipTool(SelectWeapon)
                                         Tween(v.HumanoidRootPart.CFrame*Pos)
@@ -3959,7 +4024,9 @@ local boss = Tabs.Main:AddSection("Trùm")
                                     repeat wait(_G.Fast_Delay)
                                         AttackNoCoolDown()
                                         Click()
-AutoHaki()
+                                        Click1()
+                                        Click2()
+                                        AutoHaki()
                                         EquipTool(SelectWeapon)
                                         v.HumanoidRootPart.CanCollide=false
                                         v.Humanoid.WalkSpeed=0
@@ -4028,6 +4095,8 @@ AutoHaki()
             repeat wait(_G.Fast_Delay)
                 AttackNoCoolDown()
           Click()
+Click1()
+Click2()
 AutoHaki()
           bringmob=true
           EquipTool(SelectWeapon)
@@ -4411,6 +4480,8 @@ spawn(function()
                                             end
                                             AttackNoCoolDown()
                                             Click()
+Click1()
+Click2()
 AutoHaki()
                                             EquipTool(SelectWeapon)
                                             v.HumanoidRootPart.CanCollide = false
@@ -4448,7 +4519,9 @@ end)
                                     repeat wait(_G.Fast_Delay)
                                         AttackNoCoolDown()
                                         Click()
-AutoHaki()
+                                        Click1()
+                                        Click2()
+                                        AutoHaki()
                                         EquipTool(SelectWeapon)
                                         v.HumanoidRootPart.CanCollide=false
                                         v.Humanoid.WalkSpeed=0
@@ -4484,7 +4557,9 @@ AutoHaki()
                                     repeat wait(_G.Fast_Delay)
                                         AttackNoCoolDown()
                                         Click()
-AutoHaki()
+                                        Click1()
+                                        Click2()
+                                        AutoHaki()
                                         EquipTool(SelectWeapon)
                                         v.HumanoidRootPart.CanCollide=false
                                         v.Humanoid.WalkSpeed=0
@@ -4522,7 +4597,9 @@ AutoHaki()
                                     repeat wait(_G.Fast_Delay)
                                         AttackNoCoolDown()
                                         Click()
-AutoHaki()
+                                        Click1()
+                                        Click2()
+                                        AutoHaki()
                                         EquipTool(SelectWeapon)
                                         v.HumanoidRootPart.CanCollide=false
                                         v.Humanoid.WalkSpeed=0
@@ -4622,6 +4699,8 @@ spawn(function()
                pcall(function()
                     if CheckPirateBoat() then
                         Click()
+Click1()
+Click2()
 AutoHaki()
                         game:GetService("VirtualUser"):CaptureController()
                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
@@ -4733,6 +4812,8 @@ AutoHaki()
                                                 AttackNoCoolDown()
                                                    EquipTool(SelectWeapon)
                                                    Click()
+Click1()
+Click2()
 AutoHaki()
                                                    Tween2(v.HumanoidRootPart.CFrame*Pos)
                                                    v.Humanoid.WalkSpeed=0
@@ -4966,6 +5047,8 @@ spawn(function()
                                                         repeat
                                                             task.wait(_G.Fast_Delay)
                                                             Click()
+Click1()
+Click2()
 AutoHaki()
                                                             EquipTool(SelectWeapon)
                                                             v.HumanoidRootPart.CanCollide=false
@@ -5045,6 +5128,8 @@ spawn(function()
                                 repeat
                                     task.wait(_G.Fast_Delay)
                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                     EquipTool(SelectWeapon)
                                     v.HumanoidRootPart.CanCollide=false
@@ -5090,6 +5175,8 @@ spawn(function()
                                 repeat
                                     task.wait(_G.Fast_Delay)
                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                     EquipTool(SelectWeapon)
                                     v.HumanoidRootPart.CanCollide=false
@@ -5135,6 +5222,8 @@ spawn(function()
                                 repeat
                                     task.wait(_G.Fast_Delay)
                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                     EquipTool(SelectWeapon)
                                     v.HumanoidRootPart.CanCollide=false
@@ -5175,6 +5264,8 @@ if Sea3 then
                                 repeat wait(_G.Fast_Delay)
                                     AttackNoCoolDown()
                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                     EquipTool(SelectWeapon)
                                     v.HumanoidRootPart.Size=Vector3.new(60, 60, 60)
@@ -5241,6 +5332,8 @@ AutoHaki()
                                             repeat wait(_G.Fast_Delay)
                                                 AttackNoCoolDown()
                                                    Click()
+Click1()
+Click2()
 AutoHaki()
                                                    if not game.Players.LocalPlayer.Character:FindFirstChild(SelectWeapon) then
                                                        wait()
@@ -5307,6 +5400,8 @@ spawn(function()
                                 repeat
                                     task.wait(_G.Fast_Delay)
                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                     EquipTool(SelectWeapon)
                                     v.HumanoidRootPart.CanCollide=false
@@ -5356,6 +5451,8 @@ spawn(function()
                                         pcall(function()
                                             EquipTool(SelectWeapon)
                                             Click()
+Click1()
+Click2()
 AutoHaki()
                                             v.HumanoidRootPart.Size=Vector3.new(50, 50, 50)
                                             Tween(v.HumanoidRootPart.CFrame*Pos)
@@ -5393,6 +5490,8 @@ AutoHaki()
                                         pcall(function()
                                             EquipTool(SelectWeapon)
                                             Click()
+Click1()
+Click2()
 AutoHaki()
                                             v.HumanoidRootPart.CanCollide=false
                                             v.HumanoidRootPart.Size=Vector3.new(50, 50, 50)
@@ -5741,6 +5840,8 @@ spawn(function()
                                 repeat
                                     task.wait(_G.Fast_Delay)
                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                     EquipTool(SelectWeapon)
                                     v.HumanoidRootPart.CanCollide=false
@@ -6208,6 +6309,8 @@ if Sea2 then
                                     until not _G.Factory or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(448.46756, 199.356781,-441.389252)).Magnitude<=1000000000
                                     EquipTool(SelectWeapon)
                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                     Tween(v.HumanoidRootPart.CFrame*Pos)
                                     v.HumanoidRootPart.Size=Vector3.new(60, 60, 60)
@@ -6249,6 +6352,8 @@ spawn(function()
                                 task.wait()
                                 pcall(function()
                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                     EquipTool(SelectWeapon)
                                     v.HumanoidRootPart.CanCollide=false
@@ -6292,6 +6397,8 @@ spawn(function()
                                 task.wait(_G.Fast_Delay)
                                 EquipTool(SelectWeapon)
                                 Click()
+Click1()
+Click2()
 AutoHaki()
                                 v.HumanoidRootPart.CanCollide=false
                                 v.HumanoidRootPart.Size=Vector3.new(50, 50, 50)
@@ -6384,6 +6491,8 @@ if Sea2 then
                                                 repeat
                                                     task.wait(_G.Fast_Delay)
                                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                                     EquipTool(SelectWeapon)
                                                     Tween(v.HumanoidRootPart.CFrame*Pos)
@@ -7167,6 +7276,8 @@ ToggleTeleport:OnChanged(function(Value)
     if Value==false then
         wait()
         Click()
+Click1()
+Click2()
 AutoHaki()
         Tween2(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
         wait()
@@ -7382,6 +7493,8 @@ spawn(function()
                                                 repeat 
                                                     task.wait(_G.Fast_Delay)
                                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                                     EquipTool(SelectWeapon)
                                                     v.HumanoidRootPart.CanCollide=false
@@ -7440,6 +7553,8 @@ spawn(function()
                                     repeat
                                         task.wait(_G.Fast_Delay)
                                         Click()
+Click1()
+Click2()
 AutoHaki()
                                         EquipTool(SelectWeapon)
                                         Tween(v.HumanoidRootPart.CFrame*Pos)
@@ -8596,6 +8711,8 @@ spawn(function()
                                 repeat wait(_G.Fast_Delay)
                                     AttackNoCoolDown()
                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                     EquipTool(SelectWeapon)
                                     Tween(v.HumanoidRootPart.CFrame*Pos)
@@ -8798,6 +8915,8 @@ spawn(function()
                                 wait(_G.Fast_Delay)
                                 EquipTool(SelectWeapon)
                                 Click()
+Click1()
+Click2()
 AutoHaki()
                                 Tween(v.Character.HumanoidRootPart.CFrame*CFrame.new(0, 0, 5))
                                 v.Character.HumanoidRootPart.CanCollide=false
@@ -9493,6 +9612,8 @@ spawn(function()
                                     wait(_G.Fast_Delay)
                                     AttackNoCoolDown()
                                     Click()
+Click1()
+Click2()
 AutoHaki()
                                     bringmob = true
                                     EquipTool(SelectWeapon)
@@ -9611,6 +9732,8 @@ spawn(function()
     while wait() do
         if _G.AutoHydraTree then
             Click()
+Click1()
+Click2()
 AutoHaki()  
             for _, target in ipairs(targets) do
                 if not _G.AutoHydraTree then break end 
@@ -9900,6 +10023,8 @@ spawn(function()
     while wait() do
         if _G.AutoDefendVolcano then
             Click()
+Click1()
+Click2()
 AutoHaki() 
             pcall(removeLava) 
             local currentTarget = findValidRock() 
