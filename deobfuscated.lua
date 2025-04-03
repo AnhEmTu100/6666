@@ -2233,15 +2233,30 @@ function Hop()
         Teleport()
     end
     
-    function Click()
-        local CombatFramework = debug.getupvalues(Module)[2]
-        CombatFramework.activeController.timeToNextAttack = 0
-        CombatFramework.activeController.hitboxMagnitude = 180
+function Click()
+    task.spawn(function()
+        while true do
+            local player = game.Players.LocalPlayer
+            local character = player and player.Character
+            local humanoid = character and character:FindFirstChild("Humanoid")
+
+            if not humanoid then 
+                print("Nhân vật đã chết, dừng Auto Click!")
+                break 
+            end
+
+            game:GetService("VirtualUser"):CaptureController()
+            game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 672)) -- Click liên tục
+            wait(0.1) -- Điều chỉnh tốc độ click
+        end
+    end)
+end
+    
+   --[[ function Click()
         game:GetService'VirtualUser':CaptureController()
         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
     end
-end
-
+]]
   --[[  function Click()
     local CombatFramework = debug.getupvalues(Module)[2]
         CombatFramework.activeController.attacking = false
