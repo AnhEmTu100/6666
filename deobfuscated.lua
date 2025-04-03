@@ -2232,7 +2232,8 @@ function Hop()
         end
         Teleport()
     end
-    
+
+--[[    
 function Click()
     task.spawn(function()
         while true do
@@ -2251,12 +2252,13 @@ function Click()
         end
     end)
 end
+ ]]
     
-   --[[ function Click()
+      function Click()
         game:GetService'VirtualUser':CaptureController()
         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
     end
-]]
+
   --[[  function Click()
     local CombatFramework = debug.getupvalues(Module)[2]
         CombatFramework.activeController.attacking = false
