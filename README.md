@@ -3,7 +3,7 @@
 # Tên Discord: cayngaydem
 # Tên người tạo : R2LX
 
-# Ui R2LX OFF
+# Ui R2LX OFF FIX LỖI
 
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/r2lx-hub/Fluxus-R2LX/refs/heads/main/fluent-mod-wibu-final%20.lua"))()
 
