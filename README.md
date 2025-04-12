@@ -9,4 +9,4 @@ local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/r2lx-h
 
 # 24h Sau ON
 # Hiệu lực ui : 22:5 T6, 11 thg 4
-# Hiệu lực hết hạn : 18:00 T7, 12 thg 4
+# Hiệu lực hết hạn : 19:00 T7, 12 thg 4
